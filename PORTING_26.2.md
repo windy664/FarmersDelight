@@ -55,7 +55,47 @@
 | Gradle 版本不符 | 需 9.6.1 | 改 wrapper |
 | Java 版本 | MC 26.2 要 Java 25 | 已满足 |
 
+## 进度快照（2026-07-07 凌晨，CI 驱动）
+
+**这个 26.1 分支本身是上游一个未完成的半成品移植**（提交历史全是移植 commit，代码里有真实 bug：`compoundRecipes` 未定义、`super.saveAdditional(compound)` 的 `compound` 未定义等）。所以本质是**接力完成一个半成品移植**，不是干净版本 bump。
+
+编译错误数：初始 **1035** → 当前 **~204**（`build.yml` CI 上跑）。
+
+### 已完成 ✅
+- **M1 构建配置**：版本全部提升并 CI 验证可解析。
+- **Gradle wrapper 修复**：仓库里的 `gradlew`/`gradlew.bat` 被改坏（`-jar` + 空 CLASSPATH），已恢复标准 `GradleWrapperMain` 启动方式。
+- **CI**：`build.yml`（JDK25/上传 jar）+ `diagnose.yml`（`createMinecraftArtifacts` 后 grep/javap 反编译 jar 拿真实 API，**不猜**）。
+- **注解**：删除全部已不存在的 `MethodsReturnNonnullByDefault`（`@NullMarked` 已覆盖）。
+- **advancements 包拆分**：`critereon`→`triggers`/`predicates`/`predicates.entity`，全部 import 已改。
+- **ModData**：`client.model.data`→`model.data`。
+- **datagen（M3）整体排除编译**：26.2 重写了 model/tag/recipe/loot 全套 datagen（NeoForge 删 model generators+ExistingFileHelper，vanilla tag/recipe provider 大改）。`data/**` 自包含、生成的 JSON 已在 `src/generated/resources` 打进 jar，故**运行时不受影响**。见 `build.gradle` 的 `sourceSets.main.java.exclude`。约消除 800 错。
+- **CookingPot 生态**：BlockEntity 退回稳定的旧 `ItemStackHandler`/`IItemHandler` API（内部逻辑本就是旧 API 写的）；序列化改成 26.2 的 `ValueInput/ValueOutput`（`serialize(output.child())`/`getIntOr`/`ItemStack.OPTIONAL_CODEC`/`ComponentSerialization.CODEC`/`Codec.unboundedMap` 存 RecipesUsed）；Menu 字段改 `IItemHandler`；`getCraftingRemainingItem`→`getCraftingRemainder`、`assemble` 去多余 registries 参、`recipe.id().location()`、`getServer().getRecipeManager().byKey(ResourceKey.create(Registries.RECIPE, id))`。
+
+### 关键决策
+1. **BlockEntity 用稳定旧 `ItemStackHandler` API**：26.2 的新 transfer API（`ResourceHandler<ItemResource>`+事务）是移动的 beta 目标，旧 `ItemStackHandler`/`IItemHandler` 仍完整可用且带 `serialize(ValueOutput)`。CookingPot 逻辑本就旧 API，退回最省最稳。（注：CuttingBoard/Skillet/Stove 上游已完整迁到新 API 且能编译，保留原样。）
+2. **Capability 暴露暂时中和**：`Capabilities.Item.BLOCK` 在 26.2 要 `ResourceHandler<ItemResource>`，IItemHandler→ResourceHandler 无现成公开桥。CookingPot 的 `registerCapabilities` 已注释（世界内功能完好，仅漏斗自动 I/O 延后）。**待办**：把 sided `CookingPotItemHandler` 写成 `ResourceHandler` 适配器再恢复。
+
+### 剩余 ~204 错（按类别，CI 驱动逐个攻）
+- **client 渲染/GUI（最大块）**：`CookingPotRecipeBookComponent`(RecipeBookComponent 抽象方法 `fillGhostRecipe(GhostSlots,RecipeDisplay,ContextMap)` 全变)、`HUDOverlays`、`CanvasSignRenderer`/`HangingCanvasSignRenderer`、`CanvasSignEditScreen`、`DefaultStoveRenderer`、`CookingPotScreen`/`Tooltip`。26.2 渲染管线/recipe book 大改。
+- **vanilla 重命名**：`ModBlocks` 用了 `Blocks.WHITE_WOOL`/`BROWN_CARPET`/`WHITE_CARPET`（26.2 改名/重构，需 diagnose 查新名）；`ModAtlases` 的 `Sheets.SIGN_SHEET`/`SpriteMapper`。
+- **crafting remainder**：26.2 `ItemStack.getCraftingRemainder()` 返回**新类型 `ItemStackTemplate`** 而非 ItemStack，需 `.toStack()`/`isEmpty` 等 ItemStackTemplate API（影响 CookingPotBlockEntity 250/307/308/330/435）。
+- **CookingPotMenu.handlePlacement**：`RecipeBookMenu.handlePlacement` 签名变，用了 `inventory.getResource()/getAmountAsInt()`。
+- **CookingPotBlock**：`MathUtils.calcRedstoneFromItemHandler(ItemStackHandler)` vs `ResourceHandler` 不匹配。
+- **BasketInvWrapper**：`VanillaContainerWrapper(Container)` 构造在 26.2 非 public，需换工厂/继承点。
+- **loot**：`FDAddTableLootModifier` 的 codec `apply`/`AddTableLootModifier` 构造/`registries.get(ResourceKey,ResourceKey)` 签名变。
+- **mixin**：`HideBlockBreakProgressMixin`(14 目标)、`CanvasSignEditScreenMixin`(27/31)、`CommonModBusEvents`、`CuttingBoardBlock`/`SafetyNetBlock`（block 方法 override 签名）。
+
+### 诊断方法（可复用）
+`diagnose.yml`（workflow_dispatch）：跑 `createMinecraftArtifacts` → 把所有 gradle 缓存 jar 的类路径 grep 成包树、对关键类 `javap -p` 出方法签名。**这是拿 26.2 真实 API 的正道，别猜**。
+
+## M4 —— 运行期冒烟（编译绿后）
+- [ ] client 启动进主菜单 → 进世界
+- [ ] 核心方块：烹饪锅 / 切菜板 / 篝火烧烤 交互
+- [ ] JEI 集成显示自定义配方
+- [ ] datafix：旧存档载入不崩
+- [ ] 恢复 capability 暴露后测漏斗 I/O
+- [ ] datagen 重写到 vanilla `net.minecraft.client.data.models` 后 `runData` diff
+
 ## 约束
-- 用户自行编译构建，AI 不代跑 gradle
 - 提交不署 Claude 名
-- 遇到不确定的 API 去 NeoForge 26.2 MDK / 反编译源核对，不猜
+- 遇到不确定的 API 去 NeoForge 26.2 反编译源 / diagnose.yml 核对，不猜

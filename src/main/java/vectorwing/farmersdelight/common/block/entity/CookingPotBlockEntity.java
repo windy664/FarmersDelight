@@ -247,7 +247,7 @@ public class CookingPotBlockEntity extends SyncedBlockEntity implements MenuProv
 
 	public ItemStack getContainer() {
 		ItemStack mealStack = getMeal();
-		if (mealStack.isEmpty() || mealContainerStack.isEmpty()) return mealStack.getCraftingRemainder();
+		if (mealStack.isEmpty() || mealContainerStack.isEmpty()) return mealStack.getCraftingRemainder().create();
 		return mealContainerStack;
 	}
 
@@ -304,8 +304,9 @@ public class CookingPotBlockEntity extends SyncedBlockEntity implements MenuProv
 
 		for (int i = 0; i < MEAL_DISPLAY_SLOT; ++i) {
 			ItemStack slotStack = inventory.getStackInSlot(i);
-			if (!slotStack.getCraftingRemainder().isEmpty()) {
-				ejectIngredientRemainder(slotStack.getCraftingRemainder());
+			ItemStack remainder = slotStack.getCraftingRemainder().create();
+			if (!remainder.isEmpty()) {
+				ejectIngredientRemainder(remainder);
 			} else if (INGREDIENT_REMAINDER_OVERRIDES.containsKey(slotStack.getItem())) {
 				ejectIngredientRemainder(INGREDIENT_REMAINDER_OVERRIDES.get(slotStack.getItem()).getDefaultInstance());
 			}
@@ -327,7 +328,7 @@ public class CookingPotBlockEntity extends SyncedBlockEntity implements MenuProv
 	@Override
 	public void setRecipeUsed(@Nullable RecipeHolder<?> recipe) {
 		if (recipe != null) {
-			Identifier recipeID = recipe.id().location();
+			Identifier recipeID = recipe.id().identifier();
 			usedRecipeTracker.addTo(recipeID, 1);
 		}
 	}
@@ -432,7 +433,7 @@ public class CookingPotBlockEntity extends SyncedBlockEntity implements MenuProv
 	}
 
 	private boolean doesMealHaveContainer(ItemStack meal) {
-		return !mealContainerStack.isEmpty() || !meal.getCraftingRemainder().isEmpty();
+		return !mealContainerStack.isEmpty() || !meal.getCraftingRemainder().create().isEmpty();
 	}
 
 	public boolean isContainerValid(ItemStack containerItem) {

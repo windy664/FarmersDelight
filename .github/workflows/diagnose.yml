@@ -59,16 +59,11 @@ jobs:
           # classpath = every jar (so cross-refs resolve for -p protected members)
           CP=$(paste -sd: /tmp/jars.txt)
           for c in \
-            net.neoforged.neoforge.transfer.StacksResourceHandler \
-            net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler \
-            net.neoforged.neoforge.transfer.RangedResourceHandler \
-            net.neoforged.neoforge.transfer.DelegatingResourceHandler \
-            net.neoforged.neoforge.transfer.transaction.Transaction \
-            net.neoforged.neoforge.transfer.transaction.TransactionContext \
-            net.neoforged.neoforge.capabilities.Capabilities\$Item \
-            net.neoforged.neoforge.common.util.ValueIOSerializable \
-            net.minecraft.world.level.storage.ValueInput \
-            net.minecraft.world.level.storage.ValueOutput ; do
+            net.neoforged.neoforge.items.ItemStackHandler \
+            net.neoforged.neoforge.items.ItemResourceHandlerAdapter \
+            net.neoforged.neoforge.items.ComponentItemHandler \
+            net.neoforged.neoforge.items.wrapper.RangedWrapper \
+            net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler ; do
             echo "==== javap $c ===="
             javap -cp "$CP" -p "$c" 2>&1 | grep -E 'public|protected|abstract|class|interface' | head -50
             echo ""

@@ -17,14 +17,15 @@
 
 ## 阶段划分
 
-### M1 —— 构建配置提升（必做，先让它能拉依赖）
-- [ ] `gradle.properties`：
-  - `minecraft_version` 26.1.2 → 26.2（含 `minecraft_version_range`）
-  - `neo_version` → `26.2.0.7-beta`，同步 `neo_version_range`
-  - `jei_version` / `jei_minecraft` / `appleskin_version` 对齐 26.2 可用版本（Modrinth/maven 查最新）
-- [ ] `gradle/wrapper/gradle-wrapper.properties`：`gradle-9.4.1` → `gradle-9.6.1`
-- [ ] `build.gradle`：确认 moddev 插件版本兼容 26.2（可能需 > 2.0.141）；Parchment 保持禁用
-- [ ] 先跑一次依赖解析，确认 neoForge/JEI/AppleSkin 坐标都能拉到
+### M1 —— 构建配置提升 ✅（已完成，版本均经 maven metadata 查证）
+- [x] `gradle.properties`：
+  - `minecraft_version` 26.1.2 → **26.2**（range `[26.2,26.3)`）
+  - `neo_version` → **26.2.0.8-beta**（当前 26.2 线最新），`neo_version_range` 同步
+  - `jei_minecraft` → **26.2**，`jei_version` → **30.7.0.39**
+  - `appleskin_version` → **mc26.2-3.0.10**
+- [x] `gradle/wrapper/gradle-wrapper.properties`：`gradle-9.4.1` → **9.6.1**
+- [x] `build.gradle`：moddev **2.0.141 已是最新**，不改；Parchment 保持禁用
+- [ ] CI 跑一次确认依赖可解析（neoForge/JEI/AppleSkin）→ 编译错误即 M2 清单
 
 ### M2 —— 编译期 API 漂移修复（主体工作量）
 按已知 26.1→26.2 破坏点排查（编译错误驱动）：

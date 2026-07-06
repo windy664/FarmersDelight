@@ -39,24 +39,15 @@ jobs:
           done < /tmp/jars.txt | grep -E '\.class$' | sort -u > /tmp/all_classes.txt
           echo "total unique class entries: $(wc -l < /tmp/all_classes.txt)"
           echo ""
-          for cls in \
-            MethodsReturnNonnullByDefault \
-            InventoryChangeTrigger \
-            SimpleCriterionTrigger \
-            ContextAwarePredicate \
-            EntityPredicate \
-            ItemPredicate \
-            RecipeUnlockedTrigger \
-            Criterion \
-            BlockStateProvider \
-            ConfiguredModel \
-            ModelFile \
-            ModelProvider \
-            ExistingFileHelper \
-            ItemAbility \
-            ModelData \
-            IUnbakedGeometry ; do
-            echo "=== $cls ==="
-            grep -E "/$cls\.class$" /tmp/all_classes.txt | sed 's#\.class$##;s#/#.#g' | sort -u | head -6
-            echo ""
-          done
+          dot() { sed 's#\.class$##;s#/#.#g' | sort -u ; }
+          echo "############ net.minecraft.advancements tree ############"
+          grep -E '^net/minecraft/advancements/' /tmp/all_classes.txt | grep -vE '\$' | dot
+          echo ""
+          echo "############ net.minecraft.client.data.models tree ############"
+          grep -E '^net/minecraft/client/data/models/' /tmp/all_classes.txt | grep -vE '\$' | dot
+          echo ""
+          echo "############ neoforge datagen leftovers (client.model / data) ############"
+          grep -E '^net/neoforged/neoforge/(client/model|data|model)/' /tmp/all_classes.txt | grep -vE '\$' | dot | head -60
+          echo ""
+          echo "############ DataComponentInput / DataComponentGetter ############"
+          grep -E '/(DataComponentInput|DataComponentGetter)\.class$' /tmp/all_classes.txt | dot

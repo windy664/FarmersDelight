@@ -51,3 +51,19 @@ jobs:
           echo ""
           echo "############ DataComponentInput / DataComponentGetter ############"
           grep -E '/(DataComponentInput|DataComponentGetter)\.class$' /tmp/all_classes.txt | dot
+          echo ""
+          echo "############ neoforge items + transfer trees ############"
+          grep -E '^net/neoforged/neoforge/(items|transfer|capabilities)/' /tmp/all_classes.txt | grep -vE '\$' | dot | head -80
+          echo ""
+          echo "############ javap key handler classes ############"
+          NEOJAR=$(while read -r j; do unzip -l "$j" 2>/dev/null | grep -q 'neoforged/neoforge/items/IItemHandler.class' && echo "$j" && break; done < /tmp/jars.txt)
+          echo "NEOJAR=$NEOJAR"
+          for c in \
+            net.neoforged.neoforge.items.IItemHandler \
+            net.neoforged.neoforge.items.ItemStackHandler \
+            net.neoforged.neoforge.items.ItemStacksResourceHandler \
+            net.neoforged.neoforge.items.IItemHandlerModifiable ; do
+            echo "==== javap $c ===="
+            javap -cp "$NEOJAR" -public "$c" 2>&1 | head -40
+            echo ""
+          done

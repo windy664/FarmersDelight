@@ -39,32 +39,24 @@ jobs:
           done < /tmp/jars.txt | grep -E '\.class$' | sort -u > /tmp/all_classes.txt
           echo "total unique class entries: $(wc -l < /tmp/all_classes.txt)"
           echo ""
-          dot() { sed 's#\.class$##;s#/#.#g' | sort -u ; }
-          echo "############ net.minecraft.advancements tree ############"
-          grep -E '^net/minecraft/advancements/' /tmp/all_classes.txt | grep -vE '\$' | dot
-          echo ""
-          echo "############ net.minecraft.client.data.models tree ############"
-          grep -E '^net/minecraft/client/data/models/' /tmp/all_classes.txt | grep -vE '\$' | dot
-          echo ""
-          echo "############ neoforge datagen leftovers (client.model / data) ############"
-          grep -E '^net/neoforged/neoforge/(client/model|data|model)/' /tmp/all_classes.txt | grep -vE '\$' | dot | head -60
-          echo ""
-          echo "############ DataComponentInput / DataComponentGetter ############"
-          grep -E '/(DataComponentInput|DataComponentGetter)\.class$' /tmp/all_classes.txt | dot
-          echo ""
-          echo "############ full transfer.item tree ############"
-          grep -E '^net/neoforged/neoforge/transfer/item/' /tmp/all_classes.txt | grep -vE '\$' | dot
-          echo ""
-          echo "############ javap key handler classes ############"
-          # classpath = every jar (so cross-refs resolve for -p protected members)
           CP=$(paste -sd: /tmp/jars.txt)
-          for c in \
-            net.neoforged.neoforge.items.ItemStackHandler \
-            net.neoforged.neoforge.items.ItemResourceHandlerAdapter \
-            net.neoforged.neoforge.items.ComponentItemHandler \
-            net.neoforged.neoforge.items.wrapper.RangedWrapper \
-            net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler ; do
-            echo "==== javap $c ===="
-            javap -cp "$CP" -p "$c" 2>&1 | grep -E 'public|protected|abstract|class|interface' | head -50
+          echo "==== ItemStack: craftingRemainder / onCraftedBy ===="
+          javap -cp "$CP" -public net.minecraft.world.item.ItemStack 2>&1 | grep -iE 'craftingRemainder|onCraft'
+          echo ""
+          echo "==== ItemStackTemplate ===="
+          javap -cp "$CP" -public net.minecraft.world.item.ItemStackTemplate 2>&1 | grep -E 'public' | head -40
+          echo ""
+          echo "==== Blocks: WOOL / CARPET fields ===="
+          javap -cp "$CP" -public net.minecraft.world.level.block.Blocks 2>&1 | grep -iE 'WOOL|CARPET' | head -40
+          echo ""
+          echo "==== Sheets: SIGN fields + SpriteMapper ===="
+          javap -cp "$CP" -public net.minecraft.client.renderer.Sheets 2>&1 | grep -iE 'SIGN|sheet' | head -30
+          echo ""
+          echo "==== RecipeBookComponent: abstract methods ===="
+          javap -cp "$CP" -p net.minecraft.client.gui.screens.recipebook.RecipeBookComponent 2>&1 | grep -E 'abstract|fillGhost|public' | head -40
+          echo ""
+          echo "==== VanillaContainerWrapper ctors ===="
+          javap -cp "$CP" -p net.neoforged.neoforge.items.wrapper.VanillaContainerWrapper 2>&1 | grep -E 'VanillaContainerWrapper|public|protected' | head -20
+          for c in x ; do
             echo ""
           done

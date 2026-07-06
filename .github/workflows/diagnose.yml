@@ -56,16 +56,20 @@ jobs:
           grep -E '^net/neoforged/neoforge/transfer/item/' /tmp/all_classes.txt | grep -vE '\$' | dot
           echo ""
           echo "############ javap key handler classes ############"
-          NEOJAR=$(while read -r j; do unzip -l "$j" 2>/dev/null | grep -q 'neoforged/neoforge/items/IItemHandler.class' && echo "$j" && break; done < /tmp/jars.txt)
-          echo "NEOJAR=$NEOJAR"
+          # classpath = every jar (so cross-refs resolve for -p protected members)
+          CP=$(paste -sd: /tmp/jars.txt)
           for c in \
-            net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler \
-            net.neoforged.neoforge.transfer.item.ItemResource \
             net.neoforged.neoforge.transfer.StacksResourceHandler \
-            net.neoforged.neoforge.transfer.ResourceHandler \
-            net.neoforged.neoforge.items.ItemStackHandler \
-            net.neoforged.neoforge.items.IItemHandler ; do
+            net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler \
+            net.neoforged.neoforge.transfer.RangedResourceHandler \
+            net.neoforged.neoforge.transfer.DelegatingResourceHandler \
+            net.neoforged.neoforge.transfer.transaction.Transaction \
+            net.neoforged.neoforge.transfer.transaction.TransactionContext \
+            net.neoforged.neoforge.capabilities.Capabilities\$Item \
+            net.neoforged.neoforge.common.util.ValueIOSerializable \
+            net.minecraft.world.level.storage.ValueInput \
+            net.minecraft.world.level.storage.ValueOutput ; do
             echo "==== javap $c ===="
-            javap -cp "$NEOJAR" -public "$c" 2>&1 | head -60
+            javap -cp "$CP" -p "$c" 2>&1 | grep -E 'public|protected|abstract|class|interface' | head -50
             echo ""
           done

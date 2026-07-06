@@ -1,0 +1,62 @@
+name: Diagnose
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Prepare Minecraft artifacts
+        run: ./gradlew createMinecraftArtifacts --stacktrace -Dorg.gradle.jvmargs=-Xmx4g
+
+      - name: Grep API package locations
+        run: |
+          echo "### collecting class listings from all cached jars ###"
+          find ~/.gradle -name '*.jar' 2>/dev/null > /tmp/jars.txt
+          wc -l /tmp/jars.txt
+          : > /tmp/all_classes.txt
+          while read -r j; do
+            unzip -l "$j" 2>/dev/null | awk '{print $4}'
+          done < /tmp/jars.txt | grep -E '\.class$' | sort -u > /tmp/all_classes.txt
+          echo "total unique class entries: $(wc -l < /tmp/all_classes.txt)"
+          echo ""
+          for cls in \
+            MethodsReturnNonnullByDefault \
+            InventoryChangeTrigger \
+            SimpleCriterionTrigger \
+            ContextAwarePredicate \
+            EntityPredicate \
+            ItemPredicate \
+            RecipeUnlockedTrigger \
+            Criterion \
+            BlockStateProvider \
+            ConfiguredModel \
+            ModelFile \
+            ModelProvider \
+            ExistingFileHelper \
+            ItemAbility \
+            ModelData \
+            IUnbakedGeometry ; do
+            echo "=== $cls ==="
+            grep -E "/$cls\.class$" /tmp/all_classes.txt | sed 's#\.class$##;s#/#.#g' | sort -u | head -6
+            echo ""
+          done

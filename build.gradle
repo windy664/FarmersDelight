@@ -18,6 +18,16 @@ sourceSets.main.resources {
     exclude(".cache")
 }
 
+// M3 (26.2 port): NeoForge removed its client model generators (BlockStateProvider/
+// ItemModelProvider/ConfiguredModel/ModelFile/ExistingFileHelper) in favour of vanilla's
+// net.minecraft.client.data.models system. These two datagen providers use the removed API.
+// The already-generated JSON models/blockstates in src/generated/resources still ship, so the
+// mod is unaffected at runtime. Excluded from compilation until rewritten to the vanilla API.
+sourceSets.main.java {
+    exclude 'vectorwing/farmersdelight/data/BlockStates.java'
+    exclude 'vectorwing/farmersdelight/data/ItemModels.java'
+}
+
 repositories {
     maven {
         // JEI

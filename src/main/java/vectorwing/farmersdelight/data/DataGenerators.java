@@ -43,9 +43,13 @@ public class DataGenerators
 		// TODO: IE hasn't updated to 26.1 yet. This depends on ExistingFileHelper, which no longer exists. See if this can be fixed.
 //		event.createProvider(new StructureUpdater("structures/village/houses", FarmersDelight.MODID, helper, output));
 
-		BlockStates blockStates = new BlockStates(output, helper);
-		generator.addProvider(event.includeClient(), blockStates);
-		generator.addProvider(event.includeClient(), new ItemModels(output, blockStates.models().existingFileHelper));
+		// M3 (26.2 port): NeoForge removed its client model generators + ExistingFileHelper.
+		// BlockStates/ItemModels providers are excluded from compilation (see build.gradle) and
+		// disabled here until rewritten to vanilla net.minecraft.client.data.models. The already
+		// generated JSON models in src/generated/resources still ship, so runtime is unaffected.
+//		BlockStates blockStates = new BlockStates(output, helper);
+//		generator.addProvider(event.includeClient(), blockStates);
+//		generator.addProvider(event.includeClient(), new ItemModels(output, blockStates.models().existingFileHelper));
 		event.createProvider(SoundDefinitions::new);
 	}
 }

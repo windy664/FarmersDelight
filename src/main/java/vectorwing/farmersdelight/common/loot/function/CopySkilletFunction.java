@@ -1,6 +1,5 @@
 package vectorwing.farmersdelight.common.loot.function;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.resources.Identifier;
@@ -15,7 +14,6 @@ import vectorwing.farmersdelight.common.block.entity.SkilletBlockEntity;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
-@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 public class CopySkilletFunction extends LootItemConditionalFunction
 {

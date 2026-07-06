@@ -15,7 +15,7 @@ import vectorwing.farmersdelight.common.registry.ModBlocks;
 public abstract class HideBlockBreakProgressMixin
 {
 	@Inject(method = "renderBreakingTexture(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/BlockAndTintGetter;Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;Lnet/neoforged/neoforge/client/model/data/ModelData;)V", at = @At("HEAD"), cancellable = true)
-	private void hideBlockDamage(BlockState blockState, BlockPos pos, BlockAndTintGetter lightReader, PoseStack matrixStack, VertexConsumer vertexBuilder, net.neoforged.neoforge.client.model.data.ModelData modelData, CallbackInfo ci) {
+	private void hideBlockDamage(BlockState blockState, BlockPos pos, BlockAndTintGetter lightReader, PoseStack matrixStack, VertexConsumer vertexBuilder, net.neoforged.neoforge.model.data.ModelData modelData, CallbackInfo ci) {
 		if (blockState.getBlock() == ModBlocks.CANVAS_RUG.get()) {
 			ci.cancel();
 		}

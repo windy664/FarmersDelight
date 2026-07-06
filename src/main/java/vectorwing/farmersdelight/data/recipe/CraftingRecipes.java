@@ -1,6 +1,6 @@
 package vectorwing.farmersdelight.data.recipe;
 
-import net.minecraft.advancements.criterion.InventoryChangeTrigger;
+import net.minecraft.advancements.triggers.InventoryChangeTrigger;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;

@@ -364,7 +364,7 @@ public class ModItems
 			@Override
 			public void registerBlocks(Map<Block, Item> blockToItemMap, Item item) {
 				super.registerBlocks(blockToItemMap, item);
-				blockToItemMap.put(ModBlocks.TOMATO_CROP, item);
+				blockToItemMap.put(ModBlocks.TOMATO_CROP.get(), item);
 			}
 		}, ModBlocks.BUDDING_TOMATO_CROP, basicItem());
 	public static final Supplier<Item> ROTTEN_TOMATO = registerWithTab("rotten_tomato",

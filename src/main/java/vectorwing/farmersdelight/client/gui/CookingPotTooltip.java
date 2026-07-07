@@ -45,8 +45,8 @@ public class CookingPotTooltip implements ClientTooltipComponent
 
 	@Override
 	public void extractText(GuiGraphicsExtractor gui, Font font, int x, int y) {
-		Integer color = ChatFormatting.GRAY.getColor();
-		int gray = color == null ? -1 : color;
+		// M-client (26.2): ChatFormatting.getColor() removed; use the fixed GRAY rgb value.
+		int gray = 0xAAAAAA;
 
 		// TODO this might not work as expected. I'm guessing with most of the methods.
 		if (!mealStack.isEmpty()) {

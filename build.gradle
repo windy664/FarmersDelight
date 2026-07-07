@@ -29,6 +29,19 @@ sourceSets.main.java {
     // M2 (26.2 port): serves only the deferred Basket item-handler capability (new transfer API
     // requires a ResourceHandler adapter). Excluded until that adapter is written.
     exclude 'vectorwing/farmersdelight/common/block/entity/inventory/BasketInvWrapper.java'
+
+    // M-client (26.2 port): the 26.2 rendering overhaul removed SignRenderer.createSignModel /
+    // Sheets.SIGN_SHEET / SpriteMapper / BlockRenderDispatcher. FD's custom "canvas sign" rendering
+    // (a niche cosmetic feature) and the canvas-rug break-progress mixin depend on the removed API.
+    // Excluded + their registrations/mixin entries disabled so the mod compiles; canvas signs exist
+    // as blocks but do not render custom art until the renderers are ported to the new sign pipeline.
+    exclude 'vectorwing/farmersdelight/client/renderer/CanvasSignRenderer.java'
+    exclude 'vectorwing/farmersdelight/client/renderer/HangingCanvasSignRenderer.java'
+    exclude 'vectorwing/farmersdelight/client/gui/CanvasSignEditScreen.java'
+    exclude 'vectorwing/farmersdelight/client/gui/HangingCanvasSignEditScreen.java'
+    exclude 'vectorwing/farmersdelight/common/registry/ModAtlases.java'
+    exclude 'vectorwing/farmersdelight/common/mixin/CanvasSignEditScreenMixin.java'
+    exclude 'vectorwing/farmersdelight/common/mixin/HideBlockBreakProgressMixin.java'
 }
 
 repositories {

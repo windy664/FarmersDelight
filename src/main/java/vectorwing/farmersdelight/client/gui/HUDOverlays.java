@@ -39,12 +39,12 @@ public class HUDOverlays
 		event.registerBelow(
 				VanillaGuiLayers.PLAYER_HEALTH,
 				Identifier.fromNamespaceAndPath(FarmersDelight.MODID, "health_offset"),
-				(guiGraphics, deltaTracker) -> healthIconsOffset = Minecraft.getInstance().gui.leftHeight
+				(guiGraphics, deltaTracker) -> healthIconsOffset = 0 // M-client (26.2): Gui.leftHeight removed; dynamic HUD offset deferred
 		);
 		event.registerBelow(
 				VanillaGuiLayers.FOOD_LEVEL,
 				Identifier.fromNamespaceAndPath(FarmersDelight.MODID, "food_offset"),
-				(guiGraphics, deltaTracker) -> foodIconsOffset = Minecraft.getInstance().gui.rightHeight
+				(guiGraphics, deltaTracker) -> foodIconsOffset = 0 // M-client (26.2): Gui.rightHeight removed; dynamic HUD offset deferred
 		);
 		event.registerAbove(VanillaGuiLayers.PLAYER_HEALTH, ComfortOverlay.ID, new ComfortOverlay());
 		event.registerAbove(VanillaGuiLayers.FOOD_LEVEL, NourishmentOverlay.ID, new NourishmentOverlay());
@@ -68,7 +68,7 @@ public class HUDOverlays
 		}
 
 		public boolean shouldRenderOverlay(Minecraft minecraft, Player player, GuiGraphicsExtractor guiGraphics, int guiTicks) {
-			return !minecraft.options.hideGui && minecraft.gameMode != null && minecraft.gameMode.canHurtPlayer();
+			return minecraft.gameMode != null && minecraft.gameMode.canHurtPlayer();
 		}
 	}
 

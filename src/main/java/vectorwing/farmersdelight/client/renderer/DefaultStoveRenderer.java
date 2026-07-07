@@ -71,7 +71,7 @@ public class DefaultStoveRenderer<T extends AbstractStoveBlockEntity> implements
 		state.direction = stove.getBlockState().getValue(StoveBlock.FACING).getOpposite();
 
 		// base extractRenderState gets the light coords for the stove's position, but we use the position above the stove
-		state.lightCoords = LevelRenderer.getLightCoords(stove.getLevel(), stove.getBlockPos().above());
+		state.lightCoords = LevelRenderer.getLightColor(stove.getLevel(), stove.getBlockPos().above());
 
 		var items = stove.getItems();
 		state.slotCount = items.size();

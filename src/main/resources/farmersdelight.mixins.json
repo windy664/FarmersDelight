@@ -17,8 +17,6 @@
     "VillagersTargetRichSoilMixin"
   ],
   "client": [
-    "CanvasSignEditScreenMixin",
-    "HideBlockBreakProgressMixin"
   ],
   "injectors": {
     "defaultRequire": 1

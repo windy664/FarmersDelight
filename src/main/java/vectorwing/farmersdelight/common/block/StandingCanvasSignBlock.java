@@ -24,7 +24,7 @@ public class StandingCanvasSignBlock extends StandingSignBlock implements Canvas
 	private final @Nullable DyeColor backgroundColor;
 
 	public StandingCanvasSignBlock(ResourceKey<Block> key, @Nullable DyeColor backgroundColor) {
-		super(WoodType.SPRUCE, Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key));
+		super(WoodType.SPRUCE, Properties.of().mapColor(MapColor.WOOD).noCollision().strength(1.0F).sound(SoundType.WOOD).setId(key));
 		this.backgroundColor = backgroundColor;
 	}
 

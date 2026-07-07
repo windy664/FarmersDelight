@@ -5,6 +5,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -20,8 +22,8 @@ public class StandingCanvasSignBlock extends StandingSignBlock implements Canvas
 {
 	private final @Nullable DyeColor backgroundColor;
 
-	public StandingCanvasSignBlock(@Nullable DyeColor backgroundColor) {
-		super(WoodType.SPRUCE, Properties.ofFullCopy(Blocks.SPRUCE_SIGN));
+	public StandingCanvasSignBlock(ResourceKey<Block> key, @Nullable DyeColor backgroundColor) {
+		super(WoodType.SPRUCE, Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key));
 		this.backgroundColor = backgroundColor;
 	}
 

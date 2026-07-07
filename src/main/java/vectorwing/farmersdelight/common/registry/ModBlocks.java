@@ -117,39 +117,39 @@ public class ModBlocks
 		() -> new TatamiHalfMatBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.pick(DyeColor.WHITE)).strength(0.3F).pushReaction(PushReaction.DESTROY)));
 
 	public static final Supplier<Block> CANVAS_SIGN = BLOCKS.register("canvas_sign",
-		() -> new StandingCanvasSignBlock(null));
+		() -> new StandingCanvasSignBlock(key("canvas_sign"), null));
 	public static final Supplier<Block> WHITE_CANVAS_SIGN = BLOCKS.register("white_canvas_sign",
-		() -> new StandingCanvasSignBlock(DyeColor.WHITE));
+		() -> new StandingCanvasSignBlock(key("white_canvas_sign"), DyeColor.WHITE));
 	public static final Supplier<Block> ORANGE_CANVAS_SIGN = BLOCKS.register("orange_canvas_sign",
-		() -> new StandingCanvasSignBlock(DyeColor.ORANGE));
+		() -> new StandingCanvasSignBlock(key("orange_canvas_sign"), DyeColor.ORANGE));
 	public static final Supplier<Block> MAGENTA_CANVAS_SIGN = BLOCKS.register("magenta_canvas_sign",
-		() -> new StandingCanvasSignBlock(DyeColor.MAGENTA));
+		() -> new StandingCanvasSignBlock(key("magenta_canvas_sign"), DyeColor.MAGENTA));
 	public static final Supplier<Block> LIGHT_BLUE_CANVAS_SIGN = BLOCKS.register("light_blue_canvas_sign",
-		() -> new StandingCanvasSignBlock(DyeColor.LIGHT_BLUE));
+		() -> new StandingCanvasSignBlock(key("light_blue_canvas_sign"), DyeColor.LIGHT_BLUE));
 	public static final Supplier<Block> YELLOW_CANVAS_SIGN = BLOCKS.register("yellow_canvas_sign",
-		() -> new StandingCanvasSignBlock(DyeColor.YELLOW));
+		() -> new StandingCanvasSignBlock(key("yellow_canvas_sign"), DyeColor.YELLOW));
 	public static final Supplier<Block> LIME_CANVAS_SIGN = BLOCKS.register("lime_canvas_sign",
-		() -> new StandingCanvasSignBlock(DyeColor.LIME));
+		() -> new StandingCanvasSignBlock(key("lime_canvas_sign"), DyeColor.LIME));
 	public static final Supplier<Block> PINK_CANVAS_SIGN = BLOCKS.register("pink_canvas_sign",
-		() -> new StandingCanvasSignBlock(DyeColor.PINK));
+		() -> new StandingCanvasSignBlock(key("pink_canvas_sign"), DyeColor.PINK));
 	public static final Supplier<Block> GRAY_CANVAS_SIGN = BLOCKS.register("gray_canvas_sign",
-		() -> new StandingCanvasSignBlock(DyeColor.GRAY));
+		() -> new StandingCanvasSignBlock(key("gray_canvas_sign"), DyeColor.GRAY));
 	public static final Supplier<Block> LIGHT_GRAY_CANVAS_SIGN = BLOCKS.register("light_gray_canvas_sign",
-		() -> new StandingCanvasSignBlock(DyeColor.LIGHT_GRAY));
+		() -> new StandingCanvasSignBlock(key("light_gray_canvas_sign"), DyeColor.LIGHT_GRAY));
 	public static final Supplier<Block> CYAN_CANVAS_SIGN = BLOCKS.register("cyan_canvas_sign",
-		() -> new StandingCanvasSignBlock(DyeColor.CYAN));
+		() -> new StandingCanvasSignBlock(key("cyan_canvas_sign"), DyeColor.CYAN));
 	public static final Supplier<Block> PURPLE_CANVAS_SIGN = BLOCKS.register("purple_canvas_sign",
-		() -> new StandingCanvasSignBlock(DyeColor.PURPLE));
+		() -> new StandingCanvasSignBlock(key("purple_canvas_sign"), DyeColor.PURPLE));
 	public static final Supplier<Block> BLUE_CANVAS_SIGN = BLOCKS.register("blue_canvas_sign",
-		() -> new StandingCanvasSignBlock(DyeColor.BLUE));
+		() -> new StandingCanvasSignBlock(key("blue_canvas_sign"), DyeColor.BLUE));
 	public static final Supplier<Block> BROWN_CANVAS_SIGN = BLOCKS.register("brown_canvas_sign",
-		() -> new StandingCanvasSignBlock(DyeColor.BROWN));
+		() -> new StandingCanvasSignBlock(key("brown_canvas_sign"), DyeColor.BROWN));
 	public static final Supplier<Block> GREEN_CANVAS_SIGN = BLOCKS.register("green_canvas_sign",
-		() -> new StandingCanvasSignBlock(DyeColor.GREEN));
+		() -> new StandingCanvasSignBlock(key("green_canvas_sign"), DyeColor.GREEN));
 	public static final Supplier<Block> RED_CANVAS_SIGN = BLOCKS.register("red_canvas_sign",
-		() -> new StandingCanvasSignBlock(DyeColor.RED));
+		() -> new StandingCanvasSignBlock(key("red_canvas_sign"), DyeColor.RED));
 	public static final Supplier<Block> BLACK_CANVAS_SIGN = BLOCKS.register("black_canvas_sign",
-		() -> new StandingCanvasSignBlock(DyeColor.BLACK));
+		() -> new StandingCanvasSignBlock(key("black_canvas_sign"), DyeColor.BLACK));
 
 	public static final Supplier<Block> CANVAS_WALL_SIGN = BLOCKS.register("canvas_wall_sign",
 		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("canvas_wall_sign")).overrideLootTable(CANVAS_SIGN.get().getLootTable()), null));
@@ -187,39 +187,39 @@ public class ModBlocks
 		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("black_canvas_wall_sign")).overrideLootTable(BLACK_CANVAS_SIGN.get().getLootTable()), DyeColor.BLACK));
 
 	public static final Supplier<Block> HANGING_CANVAS_SIGN = BLOCKS.register("hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(null));
+		() -> new CeilingHangingCanvasSignBlock(key("hanging_canvas_sign"), null));
 	public static final Supplier<Block> WHITE_HANGING_CANVAS_SIGN = BLOCKS.register("white_hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(DyeColor.WHITE));
+		() -> new CeilingHangingCanvasSignBlock(key("white_hanging_canvas_sign"), DyeColor.WHITE));
 	public static final Supplier<Block> ORANGE_HANGING_CANVAS_SIGN = BLOCKS.register("orange_hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(DyeColor.ORANGE));
+		() -> new CeilingHangingCanvasSignBlock(key("orange_hanging_canvas_sign"), DyeColor.ORANGE));
 	public static final Supplier<Block> MAGENTA_HANGING_CANVAS_SIGN = BLOCKS.register("magenta_hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(DyeColor.MAGENTA));
+		() -> new CeilingHangingCanvasSignBlock(key("magenta_hanging_canvas_sign"), DyeColor.MAGENTA));
 	public static final Supplier<Block> LIGHT_BLUE_HANGING_CANVAS_SIGN = BLOCKS.register("light_blue_hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(DyeColor.LIGHT_BLUE));
+		() -> new CeilingHangingCanvasSignBlock(key("light_blue_hanging_canvas_sign"), DyeColor.LIGHT_BLUE));
 	public static final Supplier<Block> YELLOW_HANGING_CANVAS_SIGN = BLOCKS.register("yellow_hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(DyeColor.YELLOW));
+		() -> new CeilingHangingCanvasSignBlock(key("yellow_hanging_canvas_sign"), DyeColor.YELLOW));
 	public static final Supplier<Block> LIME_HANGING_CANVAS_SIGN = BLOCKS.register("lime_hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(DyeColor.LIME));
+		() -> new CeilingHangingCanvasSignBlock(key("lime_hanging_canvas_sign"), DyeColor.LIME));
 	public static final Supplier<Block> PINK_HANGING_CANVAS_SIGN = BLOCKS.register("pink_hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(DyeColor.PINK));
+		() -> new CeilingHangingCanvasSignBlock(key("pink_hanging_canvas_sign"), DyeColor.PINK));
 	public static final Supplier<Block> GRAY_HANGING_CANVAS_SIGN = BLOCKS.register("gray_hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(DyeColor.GRAY));
+		() -> new CeilingHangingCanvasSignBlock(key("gray_hanging_canvas_sign"), DyeColor.GRAY));
 	public static final Supplier<Block> LIGHT_GRAY_HANGING_CANVAS_SIGN = BLOCKS.register("light_gray_hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(DyeColor.LIGHT_GRAY));
+		() -> new CeilingHangingCanvasSignBlock(key("light_gray_hanging_canvas_sign"), DyeColor.LIGHT_GRAY));
 	public static final Supplier<Block> CYAN_HANGING_CANVAS_SIGN = BLOCKS.register("cyan_hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(DyeColor.CYAN));
+		() -> new CeilingHangingCanvasSignBlock(key("cyan_hanging_canvas_sign"), DyeColor.CYAN));
 	public static final Supplier<Block> PURPLE_HANGING_CANVAS_SIGN = BLOCKS.register("purple_hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(DyeColor.PURPLE));
+		() -> new CeilingHangingCanvasSignBlock(key("purple_hanging_canvas_sign"), DyeColor.PURPLE));
 	public static final Supplier<Block> BLUE_HANGING_CANVAS_SIGN = BLOCKS.register("blue_hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(DyeColor.BLUE));
+		() -> new CeilingHangingCanvasSignBlock(key("blue_hanging_canvas_sign"), DyeColor.BLUE));
 	public static final Supplier<Block> BROWN_HANGING_CANVAS_SIGN = BLOCKS.register("brown_hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(DyeColor.BROWN));
+		() -> new CeilingHangingCanvasSignBlock(key("brown_hanging_canvas_sign"), DyeColor.BROWN));
 	public static final Supplier<Block> GREEN_HANGING_CANVAS_SIGN = BLOCKS.register("green_hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(DyeColor.GREEN));
+		() -> new CeilingHangingCanvasSignBlock(key("green_hanging_canvas_sign"), DyeColor.GREEN));
 	public static final Supplier<Block> RED_HANGING_CANVAS_SIGN = BLOCKS.register("red_hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(DyeColor.RED));
+		() -> new CeilingHangingCanvasSignBlock(key("red_hanging_canvas_sign"), DyeColor.RED));
 	public static final Supplier<Block> BLACK_HANGING_CANVAS_SIGN = BLOCKS.register("black_hanging_canvas_sign",
-		() -> new CeilingHangingCanvasSignBlock(DyeColor.BLACK));
+		() -> new CeilingHangingCanvasSignBlock(key("black_hanging_canvas_sign"), DyeColor.BLACK));
 
 	public static final Supplier<Block> HANGING_CANVAS_WALL_SIGN = BLOCKS.register("wall_hanging_canvas_sign",
 		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("wall_hanging_canvas_sign")).overrideLootTable(HANGING_CANVAS_SIGN.get().getLootTable()), null));

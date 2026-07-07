@@ -139,7 +139,6 @@ public class ModItems
 	public static final Supplier<Item> SKILLET = registerBlockWithTab("skillet",
 		SkilletItem::new, ModBlocks.SKILLET, basicItem().stacksTo(1)
 			.durability(SkilletItem.SKILLET_MATERIAL.durability())
-			.repairable(SkilletItem.SKILLET_MATERIAL.repairItems())
 			.enchantable(SkilletItem.SKILLET_MATERIAL.enchantmentValue())
 			.attributes(SkilletItem.createAttributes(SkilletItem.SKILLET_MATERIAL, 5.0F, -3.1F))
 			.component(DataComponents.TOOL, new Tool(Collections.emptyList(), 1.0F, 1, false))

@@ -85,6 +85,7 @@
 - **V3818_3Mixin 移除**：`@ModifyArg` 目标 `lambda$registerTypes$0` 在 26.2 里 lambda 编号变了（前置 lambda 增减导致合成方法重排），注入 0/1 失败。这是 DataFixer 自定义组件类型注册，仅旧存档迁移需要；新装 mod 不需要，直接从 `farmersdelight.mixins.json` 移除。若将来需要旧存档兼容，用 `diagnose.yml` 的 `javap -p net.minecraft.util.datafix.schemas.V3818_3` 拿到真实 lambda 编号再恢复。
 - **KeepRichSoilTreeMixin + KeepRichSoilGiantTreeMixin 移除**：`TrunkPlacer.setDirtAt` 在 26.2 被重命名/移除（`TreeGrower` 初始化时触发 mixin 注入失败）；`Feature.isGrassOrDirt` 同理可能漂移。这两个 mixin 保护富土壤不被树生成覆盖，非核心玩法，先禁用。恢复法：`diagnose.yml` 的 `javap -p` 找到 26.2 的 `TrunkPlacer` 真实方法签名。
 - **全部非 datafix mixin 暂时禁用**：`VillagersTargetRichSoilMixin`（`SecondaryPoiSensor.doTick` 签名变）、`CampfireBaleMixin`、`CuttingBoardDispenserMixin`、`KeepRichSoilUntrampledMixin`、`NourishmentAlwaysEatMixin`、`PlacePumpkinPieMixin`、`RopeFenceConnectionMixin` 一并禁用，先让游戏能启动。逐个用 `diagnose.yml` 的 `javap -p` 核实 26.2 真实签名后恢复。
+- **ModItems eager `.get()` 修复**：26.2 的 `DeferredHolder.get()` 在注册完成前抛 NPE（以前返回 null）。`ModItems` 静态初始化时 `ModBlocks.STOVE.get()` 触发。修复：`registerBlockWithTab`/`registerFuelBlockWithTab` 参数改 `Supplier<Block>`，`.get()` 延迟到注册 lambda 内。
 
 ### 已修的运行时 API 漂移（核心，已编译通过）
 CookingPot 全家 + Menu/Slots/Block；`Blocks.WOOL.pick(DyeColor)`；`Vec3.atCenterOf(pos)`；`getCraftingRemainder().create()`（返回 ItemStackTemplate）；`recipe.id().identifier()`；`onCraftedBy(Player,int)`；advancements 包拆分；ValueIO 序列化；`ItemHandlerHelper.calcRedstoneFromInventory`；`AddTableLootModifier` 3 参构造 + `resolver.get(ResourceKey)`。

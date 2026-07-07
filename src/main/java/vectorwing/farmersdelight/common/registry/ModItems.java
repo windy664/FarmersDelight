@@ -46,6 +46,16 @@ public class ModItems
 		return item;
 	}
 
+	private static Supplier<Item> registerWithTab(final String name, final Function<Item.Properties, Item> function, final Supplier<Item.Properties> propertiesSupplier) {
+		Supplier<Item> item = ITEMS.register(name, () -> {
+			Item.Properties properties = propertiesSupplier.get();
+			properties.setId(key(name));
+			return function.apply(properties);
+		});
+		CREATIVE_TAB_ITEMS.add(item);
+		return item;
+	}
+
 	public static Supplier<Item> registerHidden(final String name, final Function<Item.Properties, Item> function, final Item.Properties properties) {
 		properties.setId(key(name));
 		return ITEMS.register(name, () -> function.apply(properties));
@@ -86,19 +96,21 @@ public class ModItems
 		return new Item.Properties();
 	}
 
-	public static Item.Properties knifeItem(ToolMaterial material) {
-		HolderGetter<Block> holderGetter = BuiltInRegistries.acquireBootstrapRegistrationLookup(BuiltInRegistries.BLOCK);
-		return new Item.Properties()
-			.durability(material.durability())
-			.repairable(material.repairItems())
-			.enchantable(material.enchantmentValue())
-			.attributes(KnifeItem.createAttributes(material, 0.5F, -2.0F))
-			.component(DataComponents.TOOL, new Tool(
-				List.of(
-					Tool.Rule.deniesDrops(holderGetter.getOrThrow(material.incorrectBlocksForDrops())),
-					Tool.Rule.minesAndDrops(holderGetter.getOrThrow(ModTags.Blocks.MINEABLE_WITH_KNIFE), material.speed())
-				), 1.0F, 1, false))
-			.component(DataComponents.WEAPON, new Weapon(2));
+	public static Supplier<Item.Properties> knifeItem(ToolMaterial material) {
+		return () -> {
+			HolderGetter<Block> holderGetter = BuiltInRegistries.acquireBootstrapRegistrationLookup(BuiltInRegistries.BLOCK);
+			return new Item.Properties()
+				.durability(material.durability())
+				.repairable(material.repairItems())
+				.enchantable(material.enchantmentValue())
+				.attributes(KnifeItem.createAttributes(material, 0.5F, -2.0F))
+				.component(DataComponents.TOOL, new Tool(
+					List.of(
+						Tool.Rule.deniesDrops(holderGetter.getOrThrow(material.incorrectBlocksForDrops())),
+						Tool.Rule.minesAndDrops(holderGetter.getOrThrow(ModTags.Blocks.MINEABLE_WITH_KNIFE), material.speed())
+					), 1.0F, 1, false))
+				.component(DataComponents.WEAPON, new Weapon(2));
+		};
 	}
 
 	public static Item.Properties foodItem(FoodProperties food) {
@@ -313,7 +325,7 @@ public class ModItems
 	public static final Supplier<Item> DIAMOND_KNIFE = registerWithTab("diamond_knife",
 		KnifeItem::new, knifeItem(ToolMaterial.DIAMOND));
 	public static final Supplier<Item> NETHERITE_KNIFE = registerWithTab("netherite_knife",
-		KnifeItem::new, knifeItem(ToolMaterial.NETHERITE).fireResistant());
+		KnifeItem::new, () -> knifeItem(ToolMaterial.NETHERITE).get().fireResistant());
 	public static final Supplier<Item> GOLDEN_KNIFE = registerWithTab("golden_knife",
 		KnifeItem::new, knifeItem(ToolMaterial.GOLD));
 

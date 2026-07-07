@@ -39,7 +39,18 @@ jobs:
           done < /tmp/jars.txt | grep -E '\.class$' | sort -u > /tmp/all_classes.txt
           echo "total unique class entries: $(wc -l < /tmp/all_classes.txt)"
           echo ""
-          CP=$(paste -sd: /tmp/jars.txt)
+          # per-class jar lookup avoids the too-long full classpath that made javap silently fail
+          jfind() { local cls="$1"; while read -r j; do unzip -l "$j" 2>/dev/null | grep -q "${cls//.//}.class" && { echo "$j"; return; }; done < /tmp/jars.txt; }
+          jp() { local cls="$1"; local j; j=$(jfind "$cls"); echo "[jar: $j]"; javap -cp "$j" -public "$cls" 2>&1; }
+          echo "==== LevelRenderer getLight ===="
+          jp net.minecraft.client.renderer.LevelRenderer | grep -iE 'light' | head
+          echo "==== AddTableLootModifier ===="
+          jp net.neoforged.neoforge.common.loot.AddTableLootModifier | grep -E 'public|protected|AddTable|codecStart' | head -20
+          echo "==== LootContext resolver ===="
+          jp net.minecraft.world.level.storage.loot.LootContext | grep -iE 'resolver|getResolver|lookup' | head
+          echo "==== resolver type get() ===="
+          jp net.minecraft.core.HolderGetter\$Provider 2>/dev/null | grep -iE 'get|lookup' | head
+          echo "==== END FOCUS ===="
           echo "==== locations ===="
           grep -E '/(BlockRenderDispatcher|SignRenderer|Material|WoodType)\.class' /tmp/all_classes.txt | sed 's#\.class##;s#/#.#g' | grep -vE 'intellij|kotlin|apache' | sort -u | head
           echo "==== LevelRenderer light ===="

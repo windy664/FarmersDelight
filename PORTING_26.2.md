@@ -11,7 +11,7 @@
 
 代码规模：
 - `src/main/java` 260 个文件
-- 功能 mixin 13 个 + datafix mixin 3 个（`ItemStackComponentizationFixMixin` / `V1460Mixin` / `V3818_3Mixin`）
+- 功能 mixin 13 个 + datafix mixin 2 个（`ItemStackComponentizationFixMixin` / `V1460Mixin`）
 - 18 个文件使用 `@EventBusSubscriber`
 - datagen 完整：recipe builder / BlockStates / BlockTags / Advancements / loot
 
@@ -81,6 +81,9 @@
 3. **datagen 全套**（`data/**` 排除）——生成资源已打包，运行时无影响；改配方/模型需迁到 vanilla `client.data.models`。
 4. **零碎降级**（代码里都有 `M-client`/`M2` 注释）：CookingPot 配方书 ghost 预览/高亮（`selectMatchingRecipes`/`fillGhostRecipe` 空实现）、HUD 血饿条动态偏移（暂固定 0）、SafetyNet 落地弹跳、Stove 用自身格光照。
 
+### 运行期修复（M4 冒烟发现）
+- **V3818_3Mixin 移除**：`@ModifyArg` 目标 `lambda$registerTypes$0` 在 26.2 里 lambda 编号变了（前置 lambda 增减导致合成方法重排），注入 0/1 失败。这是 DataFixer 自定义组件类型注册，仅旧存档迁移需要；新装 mod 不需要，直接从 `farmersdelight.mixins.json` 移除。若将来需要旧存档兼容，用 `diagnose.yml` 的 `javap -p net.minecraft.util.datafix.schemas.V3818_3` 拿到真实 lambda 编号再恢复。
+
 ### 已修的运行时 API 漂移（核心，已编译通过）
 CookingPot 全家 + Menu/Slots/Block；`Blocks.WOOL.pick(DyeColor)`；`Vec3.atCenterOf(pos)`；`getCraftingRemainder().create()`（返回 ItemStackTemplate）；`recipe.id().identifier()`；`onCraftedBy(Player,int)`；advancements 包拆分；ValueIO 序列化；`ItemHandlerHelper.calcRedstoneFromInventory`；`AddTableLootModifier` 3 参构造 + `resolver.get(ResourceKey)`。
 
@@ -91,7 +94,7 @@ CookingPot 全家 + Menu/Slots/Block；`Blocks.WOOL.pick(DyeColor)`；`Vec3.atCe
 - [ ] client 启动进主菜单 → 进世界
 - [ ] 核心方块：烹饪锅 / 切菜板 / 篝火烧烤 交互
 - [ ] JEI 集成显示自定义配方
-- [ ] datafix：旧存档载入不崩
+- [x] datafix：V3818_3Mixin 已移除（lambda 编号漂移），其余两个待验证
 - [ ] 恢复 capability 暴露后测漏斗 I/O
 - [ ] datagen 重写到 vanilla `net.minecraft.client.data.models` 后 `runData` diff
 

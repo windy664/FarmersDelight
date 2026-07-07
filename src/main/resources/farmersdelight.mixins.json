@@ -5,7 +5,6 @@
   "mixins": [
     "datafix.ItemStackComponentizationFixMixin",
     "datafix.V1460Mixin",
-    "datafix.V3818_3Mixin",
     "CampfireBaleMixin",
     "CuttingBoardDispenserMixin",
     "KeepRichSoilGiantTreeMixin",

@@ -44,7 +44,7 @@ public class ModBlocks
 
 	// Workstations
 	public static final Supplier<Block> STOVE = BLOCKS.register("stove",
-		() -> new StoveBlock(Block.Properties.ofFullCopy(Blocks.BRICKS).setId(key("stove")).lightLevel(litBlockEmission(13))));
+		() -> new StoveBlock(Block.Properties.of().mapColor(MapColor.COLOR_RED).requiresCorrectToolForDrops().strength(2.0F, 6.0F).sound(SoundType.STONE).setId(key("stove")).lightLevel(litBlockEmission(13))));
 	public static final Supplier<Block> COOKING_POT = BLOCKS.register("cooking_pot",
 		() -> new CookingPotBlock(Block.Properties.of().setId(key("cooking_pot")).mapColor(MapColor.METAL).strength(0.5F, 6.0F).sound(SoundType.LANTERN)));
 	public static final Supplier<Block> SKILLET = BLOCKS.register("skillet",
@@ -54,67 +54,67 @@ public class ModBlocks
 	public static final Supplier<Block> BAMBOO_BASKET = BLOCKS.register("bamboo_basket",
 		() -> new BasketBlock(Block.Properties.of().setId(key("bamboo_basket")).strength(1.5F).sound(SoundType.BAMBOO_WOOD)));
 	public static final Supplier<Block> CUTTING_BOARD = BLOCKS.register("cutting_board",
-		() -> new CuttingBoardBlock(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).setId(key("cutting_board")).strength(2.0F).sound(SoundType.WOOD)));
+		() -> new CuttingBoardBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F, 3.0F).sound(SoundType.WOOD).setId(key("cutting_board")).strength(2.0F).sound(SoundType.WOOD)));
 
 	// Crop Storage
 	public static final Supplier<Block> CARROT_CRATE = BLOCKS.register("carrot_crate",
-		() -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).setId(key("carrot_crate")).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+		() -> new Block(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F, 3.0F).sound(SoundType.WOOD).setId(key("carrot_crate")).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Supplier<Block> POTATO_CRATE = BLOCKS.register("potato_crate",
-		() -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).setId(key("potato_crate")).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+		() -> new Block(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F, 3.0F).sound(SoundType.WOOD).setId(key("potato_crate")).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Supplier<Block> BEETROOT_CRATE = BLOCKS.register("beetroot_crate",
-		() -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).setId(key("beetroot_crate")).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+		() -> new Block(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F, 3.0F).sound(SoundType.WOOD).setId(key("beetroot_crate")).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Supplier<Block> CABBAGE_CRATE = BLOCKS.register("cabbage_crate",
-		() -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).setId(key("cabbage_crate")).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+		() -> new Block(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F, 3.0F).sound(SoundType.WOOD).setId(key("cabbage_crate")).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Supplier<Block> TOMATO_CRATE = BLOCKS.register("tomato_crate",
-		() -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).setId(key("tomato_crate")).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+		() -> new Block(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F, 3.0F).sound(SoundType.WOOD).setId(key("tomato_crate")).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Supplier<Block> ONION_CRATE = BLOCKS.register("onion_crate",
-		() -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).setId(key("onion_crate")).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+		() -> new Block(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F, 3.0F).sound(SoundType.WOOD).setId(key("onion_crate")).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Supplier<Block> RICE_BALE = BLOCKS.register("rice_bale",
-		() -> new RiceBaleBlock(Block.Properties.ofFullCopy(Blocks.HAY_BLOCK).setId(key("rice_bale"))));
+		() -> new RiceBaleBlock(Block.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).sound(SoundType.GRASS).setId(key("rice_bale"))));
 	public static final Supplier<Block> RICE_BAG = BLOCKS.register("rice_bag",
-		() -> new Block(Block.Properties.ofFullCopy(Blocks.WOOL.pick(DyeColor.WHITE)).setId(key("rice_bag"))));
+		() -> new Block(Block.Properties.of().mapColor(MapColor.WOOL).strength(0.8F).sound(SoundType.WOOL).setId(key("rice_bag"))));
 	public static final Supplier<Block> STRAW_BALE = BLOCKS.register("straw_bale",
-		() -> new StrawBaleBlock(Block.Properties.ofFullCopy(Blocks.HAY_BLOCK).setId(key("straw_bale"))));
+		() -> new StrawBaleBlock(Block.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).sound(SoundType.GRASS).setId(key("straw_bale"))));
 
 	// Building
 	public static final Supplier<Block> ROPE = BLOCKS.register("rope",
-		() -> new RopeBlock(Block.Properties.ofFullCopy(Blocks.CARPET.pick(DyeColor.BROWN)).setId(key("rope")).noCollision().noOcclusion().strength(0.2F).sound(SoundType.WOOL)));
+		() -> new RopeBlock(Block.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(0.1F).sound(SoundType.WOOL).setId(key("rope")).noCollision().noOcclusion().strength(0.2F).sound(SoundType.WOOL)));
 	public static final Supplier<Block> SAFETY_NET = BLOCKS.register("safety_net",
-		() -> new SafetyNetBlock(Block.Properties.ofFullCopy(Blocks.CARPET.pick(DyeColor.BROWN)).setId(key("safety_net")).strength(0.2F).sound(SoundType.WOOL)));
+		() -> new SafetyNetBlock(Block.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(0.1F).sound(SoundType.WOOL).setId(key("safety_net")).strength(0.2F).sound(SoundType.WOOL)));
 	public static final Supplier<Block> ROPE_FENCE = BLOCKS.register("rope_fence",
-		() -> new RopeFenceBlock(Block.Properties.ofFullCopy(Blocks.OAK_FENCE).setId(key("rope_fence")).strength(1.0F)));
+		() -> new RopeFenceBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F, 3.0F).sound(SoundType.WOOD).setId(key("rope_fence")).strength(1.0F)));
 	public static final Supplier<Block> ROPE_FENCE_GATE = BLOCKS.register("rope_fence_gate",
-		() -> new RopeFenceGateBlock(Block.Properties.ofFullCopy(Blocks.OAK_FENCE).setId(key("rope_fence_gate")).strength(1.0F)));
+		() -> new RopeFenceGateBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F, 3.0F).sound(SoundType.WOOD).setId(key("rope_fence_gate")).strength(1.0F)));
 	public static final Supplier<Block> OAK_CABINET = BLOCKS.register("oak_cabinet",
-		() -> new CabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL).setId(key("oak_cabinet"))));
+		() -> new CabinetBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.5F).sound(SoundType.WOOD).setId(key("oak_cabinet"))));
 	public static final Supplier<Block> SPRUCE_CABINET = BLOCKS.register("spruce_cabinet",
-		() -> new CabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL).setId(key("spruce_cabinet"))));
+		() -> new CabinetBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.5F).sound(SoundType.WOOD).setId(key("spruce_cabinet"))));
 	public static final Supplier<Block> BIRCH_CABINET = BLOCKS.register("birch_cabinet",
-		() -> new CabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL).setId(key("birch_cabinet"))));
+		() -> new CabinetBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.5F).sound(SoundType.WOOD).setId(key("birch_cabinet"))));
 	public static final Supplier<Block> JUNGLE_CABINET = BLOCKS.register("jungle_cabinet",
-		() -> new CabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL).setId(key("jungle_cabinet"))));
+		() -> new CabinetBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.5F).sound(SoundType.WOOD).setId(key("jungle_cabinet"))));
 	public static final Supplier<Block> ACACIA_CABINET = BLOCKS.register("acacia_cabinet",
-		() -> new CabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL).setId(key("acacia_cabinet"))));
+		() -> new CabinetBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.5F).sound(SoundType.WOOD).setId(key("acacia_cabinet"))));
 	public static final Supplier<Block> DARK_OAK_CABINET = BLOCKS.register("dark_oak_cabinet",
-		() -> new CabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL).setId(key("dark_oak_cabinet"))));
+		() -> new CabinetBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.5F).sound(SoundType.WOOD).setId(key("dark_oak_cabinet"))));
 	public static final Supplier<Block> MANGROVE_CABINET = BLOCKS.register("mangrove_cabinet",
-		() -> new CabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL).setId(key("mangrove_cabinet"))));
+		() -> new CabinetBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.5F).sound(SoundType.WOOD).setId(key("mangrove_cabinet"))));
 	public static final Supplier<Block> CHERRY_CABINET = BLOCKS.register("cherry_cabinet",
-		() -> new CabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL).setId(key("cherry_cabinet")).sound(SoundType.CHERRY_WOOD)));
+		() -> new CabinetBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.5F).sound(SoundType.WOOD).setId(key("cherry_cabinet")).sound(SoundType.CHERRY_WOOD)));
 	public static final Supplier<Block> BAMBOO_CABINET = BLOCKS.register("bamboo_cabinet",
-		() -> new CabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL).setId(key("bamboo_cabinet")).sound(SoundType.BAMBOO_WOOD)));
+		() -> new CabinetBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.5F).sound(SoundType.WOOD).setId(key("bamboo_cabinet")).sound(SoundType.BAMBOO_WOOD)));
 	public static final Supplier<Block> CRIMSON_CABINET = BLOCKS.register("crimson_cabinet",
-		() -> new CabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL).setId(key("crimson_cabinet")).sound(SoundType.NETHER_WOOD)));
+		() -> new CabinetBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.5F).sound(SoundType.WOOD).setId(key("crimson_cabinet")).sound(SoundType.NETHER_WOOD)));
 	public static final Supplier<Block> WARPED_CABINET = BLOCKS.register("warped_cabinet",
-		() -> new CabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL).setId(key("warped_cabinet")).sound(SoundType.NETHER_WOOD)));
+		() -> new CabinetBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.5F).sound(SoundType.WOOD).setId(key("warped_cabinet")).sound(SoundType.NETHER_WOOD)));
 	public static final Supplier<Block> CANVAS_RUG = BLOCKS.register("canvas_rug",
-		() -> new CanvasRugBlock(Block.Properties.ofFullCopy(Blocks.CARPET.pick(DyeColor.WHITE)).setId(key("canvas_rug")).sound(SoundType.GRASS).strength(0.2F)));
+		() -> new CanvasRugBlock(Block.Properties.of().mapColor(MapColor.WOOL).strength(0.1F).sound(SoundType.WOOL).setId(key("canvas_rug")).sound(SoundType.GRASS).strength(0.2F)));
 	public static final Supplier<Block> TATAMI = BLOCKS.register("tatami",
-		() -> new TatamiBlock(Block.Properties.ofFullCopy(Blocks.WOOL.pick(DyeColor.WHITE)).setId(key("tatami"))));
+		() -> new TatamiBlock(Block.Properties.of().mapColor(MapColor.WOOL).strength(0.8F).sound(SoundType.WOOL).setId(key("tatami"))));
 	public static final Supplier<Block> FULL_TATAMI_MAT = BLOCKS.register("full_tatami_mat",
-		() -> new TatamiMatBlock(Block.Properties.ofFullCopy(Blocks.WOOL.pick(DyeColor.WHITE)).setId(key("full_tatami_mat")).strength(0.3F)));
+		() -> new TatamiMatBlock(Block.Properties.of().mapColor(MapColor.WOOL).strength(0.8F).sound(SoundType.WOOL).setId(key("full_tatami_mat")).strength(0.3F)));
 	public static final Supplier<Block> HALF_TATAMI_MAT = BLOCKS.register("half_tatami_mat",
-		() -> new TatamiHalfMatBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.pick(DyeColor.WHITE)).setId(key("half_tatami_mat")).strength(0.3F).pushReaction(PushReaction.DESTROY)));
+		() -> new TatamiHalfMatBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).strength(0.8F).sound(SoundType.WOOL).setId(key("half_tatami_mat")).strength(0.3F).pushReaction(PushReaction.DESTROY)));
 
 	public static final Supplier<Block> CANVAS_SIGN = BLOCKS.register("canvas_sign",
 		() -> new StandingCanvasSignBlock(key("canvas_sign"), null));
@@ -152,39 +152,39 @@ public class ModBlocks
 		() -> new StandingCanvasSignBlock(key("black_canvas_sign"), DyeColor.BLACK));
 
 	public static final Supplier<Block> CANVAS_WALL_SIGN = BLOCKS.register("canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("canvas_wall_sign")), null));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("canvas_wall_sign")), null));
 	public static final Supplier<Block> WHITE_CANVAS_WALL_SIGN = BLOCKS.register("white_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("white_canvas_wall_sign")), DyeColor.WHITE));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("white_canvas_wall_sign")), DyeColor.WHITE));
 	public static final Supplier<Block> ORANGE_CANVAS_WALL_SIGN = BLOCKS.register("orange_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("orange_canvas_wall_sign")), DyeColor.ORANGE));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("orange_canvas_wall_sign")), DyeColor.ORANGE));
 	public static final Supplier<Block> MAGENTA_CANVAS_WALL_SIGN = BLOCKS.register("magenta_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("magenta_canvas_wall_sign")), DyeColor.MAGENTA));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("magenta_canvas_wall_sign")), DyeColor.MAGENTA));
 	public static final Supplier<Block> LIGHT_BLUE_CANVAS_WALL_SIGN = BLOCKS.register("light_blue_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("light_blue_canvas_wall_sign")), DyeColor.LIGHT_BLUE));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("light_blue_canvas_wall_sign")), DyeColor.LIGHT_BLUE));
 	public static final Supplier<Block> YELLOW_CANVAS_WALL_SIGN = BLOCKS.register("yellow_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("yellow_canvas_wall_sign")), DyeColor.YELLOW));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("yellow_canvas_wall_sign")), DyeColor.YELLOW));
 	public static final Supplier<Block> LIME_CANVAS_WALL_SIGN = BLOCKS.register("lime_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("lime_canvas_wall_sign")), DyeColor.LIME));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("lime_canvas_wall_sign")), DyeColor.LIME));
 	public static final Supplier<Block> PINK_CANVAS_WALL_SIGN = BLOCKS.register("pink_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("pink_canvas_wall_sign")), DyeColor.PINK));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("pink_canvas_wall_sign")), DyeColor.PINK));
 	public static final Supplier<Block> GRAY_CANVAS_WALL_SIGN = BLOCKS.register("gray_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("gray_canvas_wall_sign")), DyeColor.GRAY));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("gray_canvas_wall_sign")), DyeColor.GRAY));
 	public static final Supplier<Block> LIGHT_GRAY_CANVAS_WALL_SIGN = BLOCKS.register("light_gray_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("light_gray_canvas_wall_sign")), DyeColor.LIGHT_GRAY));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("light_gray_canvas_wall_sign")), DyeColor.LIGHT_GRAY));
 	public static final Supplier<Block> CYAN_CANVAS_WALL_SIGN = BLOCKS.register("cyan_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("cyan_canvas_wall_sign")), DyeColor.CYAN));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("cyan_canvas_wall_sign")), DyeColor.CYAN));
 	public static final Supplier<Block> PURPLE_CANVAS_WALL_SIGN = BLOCKS.register("purple_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("purple_canvas_wall_sign")), DyeColor.PURPLE));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("purple_canvas_wall_sign")), DyeColor.PURPLE));
 	public static final Supplier<Block> BLUE_CANVAS_WALL_SIGN = BLOCKS.register("blue_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("blue_canvas_wall_sign")), DyeColor.BLUE));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("blue_canvas_wall_sign")), DyeColor.BLUE));
 	public static final Supplier<Block> BROWN_CANVAS_WALL_SIGN = BLOCKS.register("brown_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("brown_canvas_wall_sign")), DyeColor.BROWN));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("brown_canvas_wall_sign")), DyeColor.BROWN));
 	public static final Supplier<Block> GREEN_CANVAS_WALL_SIGN = BLOCKS.register("green_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("green_canvas_wall_sign")), DyeColor.GREEN));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("green_canvas_wall_sign")), DyeColor.GREEN));
 	public static final Supplier<Block> RED_CANVAS_WALL_SIGN = BLOCKS.register("red_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("red_canvas_wall_sign")), DyeColor.RED));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("red_canvas_wall_sign")), DyeColor.RED));
 	public static final Supplier<Block> BLACK_CANVAS_WALL_SIGN = BLOCKS.register("black_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("black_canvas_wall_sign")), DyeColor.BLACK));
+		() -> new WallCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key("black_canvas_wall_sign")), DyeColor.BLACK));
 
 	public static final Supplier<Block> HANGING_CANVAS_SIGN = BLOCKS.register("hanging_canvas_sign",
 		() -> new CeilingHangingCanvasSignBlock(key("hanging_canvas_sign"), null));
@@ -222,61 +222,61 @@ public class ModBlocks
 		() -> new CeilingHangingCanvasSignBlock(key("black_hanging_canvas_sign"), DyeColor.BLACK));
 
 	public static final Supplier<Block> HANGING_CANVAS_WALL_SIGN = BLOCKS.register("wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("wall_hanging_canvas_sign")), null));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("wall_hanging_canvas_sign")), null));
 	public static final Supplier<Block> WHITE_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("white_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("white_wall_hanging_canvas_sign")), DyeColor.WHITE));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("white_wall_hanging_canvas_sign")), DyeColor.WHITE));
 	public static final Supplier<Block> ORANGE_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("orange_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("orange_wall_hanging_canvas_sign")), DyeColor.ORANGE));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("orange_wall_hanging_canvas_sign")), DyeColor.ORANGE));
 	public static final Supplier<Block> MAGENTA_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("magenta_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("magenta_wall_hanging_canvas_sign")), DyeColor.MAGENTA));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("magenta_wall_hanging_canvas_sign")), DyeColor.MAGENTA));
 	public static final Supplier<Block> LIGHT_BLUE_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("light_blue_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("light_blue_wall_hanging_canvas_sign")), DyeColor.LIGHT_BLUE));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("light_blue_wall_hanging_canvas_sign")), DyeColor.LIGHT_BLUE));
 	public static final Supplier<Block> YELLOW_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("yellow_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("yellow_wall_hanging_canvas_sign")), DyeColor.YELLOW));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("yellow_wall_hanging_canvas_sign")), DyeColor.YELLOW));
 	public static final Supplier<Block> LIME_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("lime_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("lime_wall_hanging_canvas_sign")), DyeColor.LIME));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("lime_wall_hanging_canvas_sign")), DyeColor.LIME));
 	public static final Supplier<Block> PINK_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("pink_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("pink_wall_hanging_canvas_sign")), DyeColor.PINK));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("pink_wall_hanging_canvas_sign")), DyeColor.PINK));
 	public static final Supplier<Block> GRAY_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("gray_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("gray_wall_hanging_canvas_sign")), DyeColor.GRAY));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("gray_wall_hanging_canvas_sign")), DyeColor.GRAY));
 	public static final Supplier<Block> LIGHT_GRAY_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("light_gray_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("light_gray_wall_hanging_canvas_sign")), DyeColor.LIGHT_GRAY));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("light_gray_wall_hanging_canvas_sign")), DyeColor.LIGHT_GRAY));
 	public static final Supplier<Block> CYAN_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("cyan_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("cyan_wall_hanging_canvas_sign")), DyeColor.CYAN));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("cyan_wall_hanging_canvas_sign")), DyeColor.CYAN));
 	public static final Supplier<Block> PURPLE_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("purple_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("purple_wall_hanging_canvas_sign")), DyeColor.PURPLE));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("purple_wall_hanging_canvas_sign")), DyeColor.PURPLE));
 	public static final Supplier<Block> BLUE_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("blue_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("blue_wall_hanging_canvas_sign")), DyeColor.BLUE));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("blue_wall_hanging_canvas_sign")), DyeColor.BLUE));
 	public static final Supplier<Block> BROWN_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("brown_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("brown_wall_hanging_canvas_sign")), DyeColor.BROWN));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("brown_wall_hanging_canvas_sign")), DyeColor.BROWN));
 	public static final Supplier<Block> GREEN_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("green_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("green_wall_hanging_canvas_sign")), DyeColor.GREEN));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("green_wall_hanging_canvas_sign")), DyeColor.GREEN));
 	public static final Supplier<Block> RED_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("red_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("red_wall_hanging_canvas_sign")), DyeColor.RED));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("red_wall_hanging_canvas_sign")), DyeColor.RED));
 	public static final Supplier<Block> BLACK_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("black_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("black_wall_hanging_canvas_sign")), DyeColor.BLACK));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(SoundType.WOOD).setId(key("black_wall_hanging_canvas_sign")), DyeColor.BLACK));
 
 	// Composting
 	public static final Supplier<Block> BROWN_MUSHROOM_COLONY = BLOCKS.register("brown_mushroom_colony",
-		() -> new MushroomColonyBlock(Items.BROWN_MUSHROOM.builtInRegistryHolder(), Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).setId(key("brown_mushroom_colony"))));
+		() -> new MushroomColonyBlock(Items.BROWN_MUSHROOM.builtInRegistryHolder(), Block.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.GRASS).setId(key("brown_mushroom_colony"))));
 	public static final Supplier<Block> RED_MUSHROOM_COLONY = BLOCKS.register("red_mushroom_colony",
-		() -> new MushroomColonyBlock(Items.RED_MUSHROOM.builtInRegistryHolder(), Block.Properties.ofFullCopy(Blocks.RED_MUSHROOM).setId(key("red_mushroom_colony"))));
+		() -> new MushroomColonyBlock(Items.RED_MUSHROOM.builtInRegistryHolder(), Block.Properties.of().mapColor(MapColor.COLOR_RED).sound(SoundType.GRASS).setId(key("red_mushroom_colony"))));
 	public static final Supplier<Block> ORGANIC_COMPOST = BLOCKS.register("organic_compost",
-		() -> new OrganicCompostBlock(Block.Properties.ofFullCopy(Blocks.DIRT).setId(key("organic_compost")).strength(1.2F).sound(SoundType.CROP)));
+		() -> new OrganicCompostBlock(Block.Properties.of().mapColor(MapColor.DIRT).strength(0.5F).sound(SoundType.GRAVEL).setId(key("organic_compost")).strength(1.2F).sound(SoundType.CROP)));
 	public static final Supplier<Block> RICH_SOIL = BLOCKS.register("rich_soil",
-		() -> new RichSoilBlock(Block.Properties.ofFullCopy(Blocks.DIRT).setId(key("rich_soil")).randomTicks()));
+		() -> new RichSoilBlock(Block.Properties.of().mapColor(MapColor.DIRT).strength(0.5F).sound(SoundType.GRAVEL).setId(key("rich_soil")).randomTicks()));
 	public static final Supplier<Block> RICH_SOIL_FARMLAND = BLOCKS.register("rich_soil_farmland",
-		() -> new RichSoilFarmlandBlock(Block.Properties.ofFullCopy(Blocks.FARMLAND).setId(key("rich_soil_farmland"))));
+		() -> new RichSoilFarmlandBlock(Block.Properties.of().mapColor(MapColor.DIRT).strength(0.6F).sound(SoundType.GRAVEL).setId(key("rich_soil_farmland"))));
 
 	// Pastries
 	public static final Supplier<Block> APPLE_PIE = BLOCKS.register("apple_pie",
-		() -> new PieBlock(Block.Properties.ofFullCopy(Blocks.CAKE).setId(key("apple_pie")), ModItems.APPLE_PIE_SLICE));
+		() -> new PieBlock(Block.Properties.of().mapColor(MapColor.NONE).strength(0.5F).sound(SoundType.WOOL).setId(key("apple_pie")), ModItems.APPLE_PIE_SLICE));
 	public static final Supplier<Block> SWEET_BERRY_CHEESECAKE = BLOCKS.register("sweet_berry_cheesecake",
-		() -> new PieBlock(Block.Properties.ofFullCopy(Blocks.CAKE).setId(key("sweet_berry_cheesecake")), ModItems.SWEET_BERRY_CHEESECAKE_SLICE));
+		() -> new PieBlock(Block.Properties.of().mapColor(MapColor.NONE).strength(0.5F).sound(SoundType.WOOL).setId(key("sweet_berry_cheesecake")), ModItems.SWEET_BERRY_CHEESECAKE_SLICE));
 	public static final Supplier<Block> CHOCOLATE_PIE = BLOCKS.register("chocolate_pie",
-		() -> new PieBlock(Block.Properties.ofFullCopy(Blocks.CAKE).setId(key("chocolate_pie")), ModItems.CHOCOLATE_PIE_SLICE));
+		() -> new PieBlock(Block.Properties.of().mapColor(MapColor.NONE).strength(0.5F).sound(SoundType.WOOL).setId(key("chocolate_pie")), ModItems.CHOCOLATE_PIE_SLICE));
 	public static final Supplier<Block> PUMPKIN_PIE = BLOCKS.register("pumpkin_pie",
-		() -> new PieBlock(Block.Properties.ofFullCopy(Blocks.CAKE).setId(key("pumpkin_pie")), ModItems.PUMPKIN_PIE_SLICE)
+		() -> new PieBlock(Block.Properties.of().mapColor(MapColor.NONE).strength(0.5F).sound(SoundType.WOOL).setId(key("pumpkin_pie")), ModItems.PUMPKIN_PIE_SLICE)
 		{
 			@Override
 			public @NotNull ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData) {
@@ -286,50 +286,50 @@ public class ModBlocks
 
 	// Wild Crops
 	public static final Supplier<Block> SANDY_SHRUB = BLOCKS.register("sandy_shrub",
-		() -> new SandyShrubBlock(Block.Properties.ofFullCopy(Blocks.TALL_GRASS).setId(key("sandy_shrub"))));
+		() -> new SandyShrubBlock(Block.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY).setId(key("sandy_shrub"))));
 
 	public static final Supplier<Block> WILD_CABBAGES = BLOCKS.register("wild_cabbages",
-		() -> new WildCropBlock(MobEffects.STRENGTH, 6, Block.Properties.ofFullCopy(Blocks.TALL_GRASS).setId(key("wild_cabbages"))));
+		() -> new WildCropBlock(MobEffects.STRENGTH, 6, Block.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY).setId(key("wild_cabbages"))));
 	public static final Supplier<Block> WILD_ONIONS = BLOCKS.register("wild_onions",
-		() -> new WildCropBlock(MobEffects.FIRE_RESISTANCE, 6, Block.Properties.ofFullCopy(Blocks.TALL_GRASS).setId(key("wild_onions"))));
+		() -> new WildCropBlock(MobEffects.FIRE_RESISTANCE, 6, Block.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY).setId(key("wild_onions"))));
 	public static final Supplier<Block> WILD_TOMATOES = BLOCKS.register("wild_tomatoes",
-		() -> new WildCropBlock(MobEffects.POISON, 10, Block.Properties.ofFullCopy(Blocks.TALL_GRASS).setId(key("wild_tomatoes"))));
+		() -> new WildCropBlock(MobEffects.POISON, 10, Block.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY).setId(key("wild_tomatoes"))));
 	public static final Supplier<Block> WILD_CARROTS = BLOCKS.register("wild_carrots",
-		() -> new WildCropBlock(MobEffects.MINING_FATIGUE, 6, Block.Properties.ofFullCopy(Blocks.TALL_GRASS).setId(key("wild_carrots"))));
+		() -> new WildCropBlock(MobEffects.MINING_FATIGUE, 6, Block.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY).setId(key("wild_carrots"))));
 	public static final Supplier<Block> WILD_POTATOES = BLOCKS.register("wild_potatoes",
-		() -> new WildCropBlock(MobEffects.NAUSEA, 8, Block.Properties.ofFullCopy(Blocks.TALL_GRASS).setId(key("wild_potatoes"))));
+		() -> new WildCropBlock(MobEffects.NAUSEA, 8, Block.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY).setId(key("wild_potatoes"))));
 	public static final Supplier<Block> WILD_BEETROOTS = BLOCKS.register("wild_beetroots",
-		() -> new WildCropBlock(MobEffects.WATER_BREATHING, 8, Block.Properties.ofFullCopy(Blocks.TALL_GRASS).setId(key("wild_beetroots"))));
+		() -> new WildCropBlock(MobEffects.WATER_BREATHING, 8, Block.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY).setId(key("wild_beetroots"))));
 	public static final Supplier<Block> WILD_RICE = BLOCKS.register("wild_rice",
-		() -> new WildRiceBlock(Block.Properties.ofFullCopy(Blocks.TALL_GRASS).setId(key("wild_rice"))));
+		() -> new WildRiceBlock(Block.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY).setId(key("wild_rice"))));
 
 	// Crops
 	public static final Supplier<Block> CABBAGE_CROP = BLOCKS.register("cabbages",
-		() -> new CabbageBlock(Block.Properties.ofFullCopy(Blocks.WHEAT).setId(key("cabbages"))));
+		() -> new CabbageBlock(Block.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY).randomTicks().setId(key("cabbages"))));
 	public static final Supplier<Block> ONION_CROP = BLOCKS.register("onions",
-		() -> new OnionBlock(Block.Properties.ofFullCopy(Blocks.WHEAT).setId(key("onions"))));
+		() -> new OnionBlock(Block.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY).randomTicks().setId(key("onions"))));
 	public static final Supplier<Block> BUDDING_TOMATO_CROP = BLOCKS.register("budding_tomatoes",
-		() -> new BuddingTomatoBlock(Block.Properties.ofFullCopy(Blocks.WHEAT).setId(key("budding_tomatoes"))));
+		() -> new BuddingTomatoBlock(Block.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY).randomTicks().setId(key("budding_tomatoes"))));
 	public static final DeferredHolder<Block, TomatoBlock> TOMATO_CROP = BLOCKS.register("tomatoes",
 		() -> new TomatoBlock(Block.Properties.of().setId(key("tomatoes")).noCollision().randomTicks().instabreak().sound(SoundType.CROP)));
 	public static final DeferredHolder<Block, HangingTomatoBlock> TOMATO_CROP_ON_ROPE = BLOCKS.register("tomatoes_on_rope",
-		() -> new HangingTomatoBlock(Block.Properties.ofFullCopy(Blocks.WHEAT).setId(key("tomatoes_on_rope")).pushReaction(PushReaction.NORMAL)));
+		() -> new HangingTomatoBlock(Block.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY).randomTicks().setId(key("tomatoes_on_rope")).pushReaction(PushReaction.NORMAL)));
 	public static final Supplier<Block> RICE_CROP = BLOCKS.register("rice",
-		() -> new RiceBlock(Block.Properties.ofFullCopy(Blocks.WHEAT).setId(key("rice")).strength(0.2F)));
+		() -> new RiceBlock(Block.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY).randomTicks().setId(key("rice")).strength(0.2F)));
 	public static final Supplier<Block> RICE_CROP_PANICLES = BLOCKS.register("rice_panicles",
-		() -> new RicePaniclesBlock(Block.Properties.ofFullCopy(Blocks.WHEAT).setId(key("rice_panicles"))));
+		() -> new RicePaniclesBlock(Block.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY).randomTicks().setId(key("rice_panicles"))));
 
 	// Feasts
 	public static final Supplier<Block> ROAST_CHICKEN_BLOCK = BLOCKS.register("roast_chicken_block",
-		() -> new RotatedFeastBlock(Block.Properties.ofFullCopy(Blocks.CAKE).setId(key("roast_chicken_block")), ModItems.ROAST_CHICKEN, true, BlockShapes.ROAST_CHICKEN_SHAPES, BlockShapes.TRAY_SHAPE));
+		() -> new RotatedFeastBlock(Block.Properties.of().mapColor(MapColor.NONE).strength(0.5F).sound(SoundType.WOOL).setId(key("roast_chicken_block")), ModItems.ROAST_CHICKEN, true, BlockShapes.ROAST_CHICKEN_SHAPES, BlockShapes.TRAY_SHAPE));
 	public static final Supplier<Block> STUFFED_PUMPKIN_BLOCK = BLOCKS.register("stuffed_pumpkin_block",
-		() -> new FeastBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN).setId(key("stuffed_pumpkin_block")), ModItems.STUFFED_PUMPKIN, false, true));
+		() -> new FeastBlock(Block.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(1.0F).sound(SoundType.WOOD).setId(key("stuffed_pumpkin_block")), ModItems.STUFFED_PUMPKIN, false, true));
 	public static final Supplier<Block> HONEY_GLAZED_HAM_BLOCK = BLOCKS.register("honey_glazed_ham_block",
-		() -> new RotatedFeastBlock(Block.Properties.ofFullCopy(Blocks.CAKE).setId(key("honey_glazed_ham_block")), ModItems.HONEY_GLAZED_HAM, true, BlockShapes.HONEY_GLAZED_HAM_SHAPES, BlockShapes.TRAY_SHAPE));
+		() -> new RotatedFeastBlock(Block.Properties.of().mapColor(MapColor.NONE).strength(0.5F).sound(SoundType.WOOL).setId(key("honey_glazed_ham_block")), ModItems.HONEY_GLAZED_HAM, true, BlockShapes.HONEY_GLAZED_HAM_SHAPES, BlockShapes.TRAY_SHAPE));
 	public static final Supplier<Block> SHEPHERDS_PIE_BLOCK = BLOCKS.register("shepherds_pie_block",
-		() -> new RotatedFeastBlock(Block.Properties.ofFullCopy(Blocks.CAKE).setId(key("shepherds_pie_block")), ModItems.SHEPHERDS_PIE, true, BlockShapes.SHEPHERDS_PIE_SHAPES, BlockShapes.TRAY_SHAPE));
+		() -> new RotatedFeastBlock(Block.Properties.of().mapColor(MapColor.NONE).strength(0.5F).sound(SoundType.WOOL).setId(key("shepherds_pie_block")), ModItems.SHEPHERDS_PIE, true, BlockShapes.SHEPHERDS_PIE_SHAPES, BlockShapes.TRAY_SHAPE));
 	public static final Supplier<Block> GLEAMING_SALAD_BLOCK = BLOCKS.register("gleaming_salad_block",
-		() -> new GleamingSaladBlock(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).setId(key("gleaming_salad_block")).lightLevel(glowingFeastBlockEmission()), ModItems.GLEAMING_SALAD, true));
+		() -> new GleamingSaladBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F, 3.0F).sound(SoundType.WOOD).setId(key("gleaming_salad_block")).lightLevel(glowingFeastBlockEmission()), ModItems.GLEAMING_SALAD, true));
 	public static final Supplier<Block> RICE_ROLL_MEDLEY_BLOCK = BLOCKS.register("rice_roll_medley_block",
-		() -> new RiceRollMedleyBlock(Block.Properties.ofFullCopy(Blocks.CAKE).setId(key("rice_roll_medley_block"))));
+		() -> new RiceRollMedleyBlock(Block.Properties.of().mapColor(MapColor.NONE).strength(0.5F).sound(SoundType.WOOL).setId(key("rice_roll_medley_block"))));
 }

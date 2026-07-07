@@ -5,8 +5,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.SignBlockEntity;
 import net.minecraft.resources.ResourceKey;
@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.material.MapColor;
 import vectorwing.farmersdelight.common.block.state.CanvasSign;
 import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
 
@@ -24,7 +25,7 @@ public class CeilingHangingCanvasSignBlock extends CeilingHangingSignBlock imple
 	private final DyeColor backgroundColor;
 
 	public CeilingHangingCanvasSignBlock(ResourceKey<Block> key, @Nullable DyeColor backgroundColor) {
-		super(WoodType.SPRUCE, BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_HANGING_SIGN).setId(key));
+		super(WoodType.SPRUCE, BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key));
 		this.backgroundColor = backgroundColor;
 	}
 

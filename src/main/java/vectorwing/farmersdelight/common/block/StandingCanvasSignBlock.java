@@ -7,12 +7,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.SignBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.material.MapColor;
 import vectorwing.farmersdelight.common.block.state.CanvasSign;
 import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
 
@@ -23,7 +24,7 @@ public class StandingCanvasSignBlock extends StandingSignBlock implements Canvas
 	private final @Nullable DyeColor backgroundColor;
 
 	public StandingCanvasSignBlock(ResourceKey<Block> key, @Nullable DyeColor backgroundColor) {
-		super(WoodType.SPRUCE, Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key));
+		super(WoodType.SPRUCE, Properties.of().mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).setId(key));
 		this.backgroundColor = backgroundColor;
 	}
 

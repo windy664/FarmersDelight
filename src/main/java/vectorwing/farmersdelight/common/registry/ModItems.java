@@ -40,8 +40,10 @@ public class ModItems
 	}
 
 	private static Supplier<Item> registerWithTab(final String name, final Function<Item.Properties, Item> function, final Item.Properties properties) {
-		properties.setId(key(name));
-		Supplier<Item> item = ITEMS.register(name, () -> function.apply(properties));
+		Supplier<Item> item = ITEMS.register(name, () -> {
+			properties.setId(key(name));
+			return function.apply(properties);
+		});
 		CREATIVE_TAB_ITEMS.add(item);
 		return item;
 	}
@@ -57,36 +59,46 @@ public class ModItems
 	}
 
 	public static Supplier<Item> registerHidden(final String name, final Function<Item.Properties, Item> function, final Item.Properties properties) {
-		properties.setId(key(name));
-		return ITEMS.register(name, () -> function.apply(properties));
+		return ITEMS.register(name, () -> {
+			properties.setId(key(name));
+			return function.apply(properties);
+		});
 	}
 
 	private static Supplier<Item> registerFuelWithTab(final String name, final Item.Properties properties, final int burnTime) {
-		properties.setId(key(name));
-		Supplier<Item> item = ITEMS.register(name, () -> new FuelItem(properties, burnTime));
+		Supplier<Item> item = ITEMS.register(name, () -> {
+			properties.setId(key(name));
+			return new FuelItem(properties, burnTime);
+		});
 		CREATIVE_TAB_ITEMS.add(item);
 		return item;
 	}
 
 	private static Supplier<Item> registerBlockWithTab(final String name, final BiFunction<Block, Item.Properties, Item> function, final Supplier<Block> block, final Item.Properties properties) {
-		properties.setId(key(name));
-		properties.useBlockDescriptionPrefix();
-		Supplier<Item> item = ITEMS.register(name, () -> function.apply(block.get(), properties));
+		Supplier<Item> item = ITEMS.register(name, () -> {
+			properties.setId(key(name));
+			properties.useBlockDescriptionPrefix();
+			return function.apply(block.get(), properties);
+		});
 		CREATIVE_TAB_ITEMS.add(item);
 		return item;
 	}
 
 	private static Supplier<Item> registerItemNameBlockWithTab(final String name, final BiFunction<Block, Item.Properties, Item> function, final Supplier<Block> block, final Item.Properties properties) {
-		properties.setId(key(name));
-		Supplier<Item> item = ITEMS.register(name, () -> function.apply(block.get(), properties));
+		Supplier<Item> item = ITEMS.register(name, () -> {
+			properties.setId(key(name));
+			return function.apply(block.get(), properties);
+		});
 		CREATIVE_TAB_ITEMS.add(item);
 		return item;
 	}
 
 	private static Supplier<Item> registerFuelBlockWithTab(final String name, final Supplier<Block> block, final Item.Properties properties, final int burnTime) {
-		properties.setId(key(name));
-		properties.useBlockDescriptionPrefix();
-		Supplier<Item> item = ITEMS.register(name, () -> new FuelBlockItem(block.get(), properties, burnTime));
+		Supplier<Item> item = ITEMS.register(name, () -> {
+			properties.setId(key(name));
+			properties.useBlockDescriptionPrefix();
+			return new FuelBlockItem(block.get(), properties, burnTime);
+		});
 		CREATIVE_TAB_ITEMS.add(item);
 		return item;
 	}

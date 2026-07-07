@@ -11,7 +11,7 @@
 
 代码规模：
 - `src/main/java` 260 个文件
-- 功能 mixin 13 个 + datafix mixin 2 个（`ItemStackComponentizationFixMixin` / `V1460Mixin`）
+- 功能 mixin 9 个 + datafix mixin 2 个（`ItemStackComponentizationFixMixin` / `V1460Mixin`）
 - 18 个文件使用 `@EventBusSubscriber`
 - datagen 完整：recipe builder / BlockStates / BlockTags / Advancements / loot
 
@@ -83,6 +83,7 @@
 
 ### 运行期修复（M4 冒烟发现）
 - **V3818_3Mixin 移除**：`@ModifyArg` 目标 `lambda$registerTypes$0` 在 26.2 里 lambda 编号变了（前置 lambda 增减导致合成方法重排），注入 0/1 失败。这是 DataFixer 自定义组件类型注册，仅旧存档迁移需要；新装 mod 不需要，直接从 `farmersdelight.mixins.json` 移除。若将来需要旧存档兼容，用 `diagnose.yml` 的 `javap -p net.minecraft.util.datafix.schemas.V3818_3` 拿到真实 lambda 编号再恢复。
+- **KeepRichSoilTreeMixin + KeepRichSoilGiantTreeMixin 移除**：`TrunkPlacer.setDirtAt` 在 26.2 被重命名/移除（`TreeGrower` 初始化时触发 mixin 注入失败）；`Feature.isGrassOrDirt` 同理可能漂移。这两个 mixin 保护富土壤不被树生成覆盖，非核心玩法，先禁用。恢复法：`diagnose.yml` 的 `javap -p` 找到 26.2 的 `TrunkPlacer` 真实方法签名。
 
 ### 已修的运行时 API 漂移（核心，已编译通过）
 CookingPot 全家 + Menu/Slots/Block；`Blocks.WOOL.pick(DyeColor)`；`Vec3.atCenterOf(pos)`；`getCraftingRemainder().create()`（返回 ItemStackTemplate）；`recipe.id().identifier()`；`onCraftedBy(Player,int)`；advancements 包拆分；ValueIO 序列化；`ItemHandlerHelper.calcRedstoneFromInventory`；`AddTableLootModifier` 3 参构造 + `resolver.get(ResourceKey)`。

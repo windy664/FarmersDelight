@@ -7,8 +7,6 @@
     "datafix.V1460Mixin",
     "CampfireBaleMixin",
     "CuttingBoardDispenserMixin",
-    "KeepRichSoilGiantTreeMixin",
-    "KeepRichSoilTreeMixin",
     "KeepRichSoilUntrampledMixin",
     "NourishmentAlwaysEatMixin",
     "PlacePumpkinPieMixin",

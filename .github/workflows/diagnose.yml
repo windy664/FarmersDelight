@@ -40,7 +40,20 @@ jobs:
           echo "total unique class entries: $(wc -l < /tmp/all_classes.txt)"
           echo ""
           CP=$(paste -sd: /tmp/jars.txt)
-          echo "==== RecipeBookComponent (full p) ===="
+          echo "==== locations ===="
+          grep -E '/(BlockRenderDispatcher|SignRenderer|Material|WoodType)\.class' /tmp/all_classes.txt | sed 's#\.class##;s#/#.#g' | grep -vE 'intellij|kotlin|apache' | sort -u | head
+          echo "==== LevelRenderer light ===="
+          javap -cp "$CP" -public net.minecraft.client.renderer.LevelRenderer 2>&1 | grep -iE 'light' | head
+          echo "==== ChatFormatting color ===="
+          javap -cp "$CP" -public net.minecraft.ChatFormatting 2>&1 | grep -iE 'color' | head
+          echo "==== Options hideGui ===="
+          javap -cp "$CP" -public net.minecraft.client.Options 2>&1 | grep -iE 'hideGui|Gui' | head
+          echo "==== Gui heights ===="
+          javap -cp "$CP" -public net.minecraft.client.gui.Gui 2>&1 | grep -iE 'Height|Offset' | head
+          echo "==== SignRenderer / SignModel ===="
+          javap -cp "$CP" -public net.minecraft.client.renderer.blockentity.SignRenderer 2>&1 | grep -iE 'SignModel|createSign|Model' | head
+          grep -E '/(SignModel|SignTransformations)\.class' /tmp/all_classes.txt | sed 's#\.class##;s#/#.#g' | sort -u | head
+          echo "==== OLD RecipeBookComponent (full p) ===="
           javap -cp "$CP" -p net.minecraft.client.gui.screens.recipebook.RecipeBookComponent 2>&1 | grep -E 'abstract|RecipeBookComponent\(|TabInfo' | head -30
           echo "==== TabInfo ===="
           javap -cp "$CP" -p 'net.minecraft.client.gui.screens.recipebook.RecipeBookComponent$TabInfo' 2>&1 | grep -E 'public|TabInfo' | head

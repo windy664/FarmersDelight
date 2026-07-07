@@ -40,23 +40,27 @@ jobs:
           echo "total unique class entries: $(wc -l < /tmp/all_classes.txt)"
           echo ""
           CP=$(paste -sd: /tmp/jars.txt)
-          echo "==== ItemStack: craftingRemainder / onCraftedBy ===="
-          javap -cp "$CP" -public net.minecraft.world.item.ItemStack 2>&1 | grep -iE 'craftingRemainder|onCraft'
+          echo "==== ColorCollection ===="
+          javap -cp "$CP" -p net.minecraft.world.level.block.ColorCollection 2>&1 | grep -E 'public|protected' | head -20
           echo ""
-          echo "==== ItemStackTemplate ===="
-          javap -cp "$CP" -public net.minecraft.world.item.ItemStackTemplate 2>&1 | grep -E 'public' | head -40
+          echo "==== VanillaContainerWrapper ===="
+          javap -cp "$CP" -p net.neoforged.neoforge.items.wrapper.VanillaContainerWrapper 2>&1 | grep -E 'VanillaContainerWrapper|public|protected|static' | head -20
           echo ""
-          echo "==== Blocks: WOOL / CARPET fields ===="
-          javap -cp "$CP" -public net.minecraft.world.level.block.Blocks 2>&1 | grep -iE 'WOOL|CARPET' | head -40
+          echo "==== Minecraft getGuiTicks/getDeltaTracker ===="
+          javap -cp "$CP" -public net.minecraft.client.Minecraft 2>&1 | grep -iE 'GuiTick|getTimer|deltaTracker|hideGui' | head
+          echo "==== Gui getGuiTicks ===="
+          javap -cp "$CP" -public net.minecraft.client.gui.Gui 2>&1 | grep -iE 'GuiTick|getTick' | head
           echo ""
-          echo "==== Sheets: SIGN fields + SpriteMapper ===="
-          javap -cp "$CP" -public net.minecraft.client.renderer.Sheets 2>&1 | grep -iE 'SIGN|sheet' | head -30
+          echo "==== SignRenderer createSignModel ===="
+          javap -cp "$CP" -public net.minecraft.client.renderer.blockentity.SignRenderer 2>&1 | grep -iE 'createSignModel|SignModel|Attachment' | head
+          echo "==== find SignModel/Attachment classes ===="
+          grep -E 'SignModel|/Attachment\.class|createSignModel' /tmp/all_classes.txt | grep -vE '\$' | sed 's#\.class##;s#/#.#g' | sort -u | head
           echo ""
-          echo "==== RecipeBookComponent: abstract methods ===="
-          javap -cp "$CP" -p net.minecraft.client.gui.screens.recipebook.RecipeBookComponent 2>&1 | grep -E 'abstract|fillGhost|public' | head -40
+          echo "==== RecipeBookComponent full (p) ===="
+          javap -cp "$CP" -p net.minecraft.client.gui.screens.recipebook.RecipeBookComponent 2>&1 | grep -E 'abstract|protected|public' | head -50
           echo ""
-          echo "==== VanillaContainerWrapper ctors ===="
-          javap -cp "$CP" -p net.neoforged.neoforge.items.wrapper.VanillaContainerWrapper 2>&1 | grep -E 'VanillaContainerWrapper|public|protected' | head -20
+          echo "==== StoveBlockEntity getLightCoords? BlockRenderDispatcher loc ===="
+          grep -E '/BlockRenderDispatcher\.class' /tmp/all_classes.txt | sed 's#\.class##;s#/#.#g'
           for c in x ; do
             echo ""
           done

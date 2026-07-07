@@ -45,7 +45,7 @@
     {
       "enum": "net/minecraft/client/model/HumanoidModel$ArmPose",
       "name": "FARMERSDELIGHT_SKILLET_FLIP",
-      "constructor": "(ZLnet/neoforged/neoforge/client/IArmPoseTransformer;)V",
+      "constructor": "(ZZLnet/neoforged/neoforge/client/IArmPoseTransformer;)V",
       "parameters": {
         "class": "vectorwing/farmersdelight/common/EnumParameters",
         "field": "PROXY_SKILLET_FLIP"

@@ -18,10 +18,10 @@ public class ModRecipeCategories
 {
 	public static DeferredRegister<RecipeBookCategory> RECIPE_BOOK_CATEGORIES = DeferredRegister.create(Registries.RECIPE_BOOK_CATEGORY, FarmersDelight.MODID);
 
-	public static DeferredHolder<RecipeBookCategory, RecipeBookCategory> COOKING_SEARCH = register("FARMERSDELIGHT_COOKING_SEARCH");
-	public static DeferredHolder<RecipeBookCategory, RecipeBookCategory> COOKING_MEALS = register("FARMERSDELIGHT_COOKING_MEALS");
-	public static DeferredHolder<RecipeBookCategory, RecipeBookCategory> COOKING_DRINKS = register("FARMERSDELIGHT_COOKING_DRINKS");
-	public static DeferredHolder<RecipeBookCategory, RecipeBookCategory> COOKING_MISC = register("FARMERSDELIGHT_COOKING_MISC");
+	public static DeferredHolder<RecipeBookCategory, RecipeBookCategory> COOKING_SEARCH = register("farmersdelight_cooking_search");
+	public static DeferredHolder<RecipeBookCategory, RecipeBookCategory> COOKING_MEALS = register("farmersdelight_cooking_meals");
+	public static DeferredHolder<RecipeBookCategory, RecipeBookCategory> COOKING_DRINKS = register("farmersdelight_cooking_drinks");
+	public static DeferredHolder<RecipeBookCategory, RecipeBookCategory> COOKING_MISC = register("farmersdelight_cooking_misc");
 
 	private static DeferredHolder<RecipeBookCategory, RecipeBookCategory> register(String id) {
 		return RECIPE_BOOK_CATEGORIES.register(id, RecipeBookCategory::new);

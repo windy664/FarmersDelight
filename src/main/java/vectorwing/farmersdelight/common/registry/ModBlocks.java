@@ -36,7 +36,7 @@ public class ModBlocks
 
 	private static final ThreadLocal<String> CURRENT_BLOCK_ID = new ThreadLocal<>();
 
-	private static <T extends Block> Supplier<T> registerBlock(String id, Supplier<T> block) {
+	private static <T extends Block> DeferredHolder<Block, T> registerBlock(String id, Supplier<T> block) {
 		return BLOCKS.register(id, () -> {
 			CURRENT_BLOCK_ID.set(id);
 			try {

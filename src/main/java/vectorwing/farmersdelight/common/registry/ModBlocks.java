@@ -152,39 +152,39 @@ public class ModBlocks
 		() -> new StandingCanvasSignBlock(key("black_canvas_sign"), DyeColor.BLACK));
 
 	public static final Supplier<Block> CANVAS_WALL_SIGN = BLOCKS.register("canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("canvas_wall_sign")).overrideLootTable(CANVAS_SIGN.get().getLootTable()), null));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("canvas_wall_sign")), null));
 	public static final Supplier<Block> WHITE_CANVAS_WALL_SIGN = BLOCKS.register("white_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("white_canvas_wall_sign")).overrideLootTable(WHITE_CANVAS_SIGN.get().getLootTable()), DyeColor.WHITE));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("white_canvas_wall_sign")), DyeColor.WHITE));
 	public static final Supplier<Block> ORANGE_CANVAS_WALL_SIGN = BLOCKS.register("orange_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("orange_canvas_wall_sign")).overrideLootTable(ORANGE_CANVAS_SIGN.get().getLootTable()), DyeColor.ORANGE));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("orange_canvas_wall_sign")), DyeColor.ORANGE));
 	public static final Supplier<Block> MAGENTA_CANVAS_WALL_SIGN = BLOCKS.register("magenta_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("magenta_canvas_wall_sign")).overrideLootTable(MAGENTA_CANVAS_SIGN.get().getLootTable()), DyeColor.MAGENTA));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("magenta_canvas_wall_sign")), DyeColor.MAGENTA));
 	public static final Supplier<Block> LIGHT_BLUE_CANVAS_WALL_SIGN = BLOCKS.register("light_blue_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("light_blue_canvas_wall_sign")).overrideLootTable(LIGHT_BLUE_CANVAS_SIGN.get().getLootTable()), DyeColor.LIGHT_BLUE));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("light_blue_canvas_wall_sign")), DyeColor.LIGHT_BLUE));
 	public static final Supplier<Block> YELLOW_CANVAS_WALL_SIGN = BLOCKS.register("yellow_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("yellow_canvas_wall_sign")).overrideLootTable(YELLOW_CANVAS_SIGN.get().getLootTable()), DyeColor.YELLOW));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("yellow_canvas_wall_sign")), DyeColor.YELLOW));
 	public static final Supplier<Block> LIME_CANVAS_WALL_SIGN = BLOCKS.register("lime_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("lime_canvas_wall_sign")).overrideLootTable(LIME_CANVAS_SIGN.get().getLootTable()), DyeColor.LIME));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("lime_canvas_wall_sign")), DyeColor.LIME));
 	public static final Supplier<Block> PINK_CANVAS_WALL_SIGN = BLOCKS.register("pink_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("pink_canvas_wall_sign")).overrideLootTable(PINK_CANVAS_SIGN.get().getLootTable()), DyeColor.PINK));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("pink_canvas_wall_sign")), DyeColor.PINK));
 	public static final Supplier<Block> GRAY_CANVAS_WALL_SIGN = BLOCKS.register("gray_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("gray_canvas_wall_sign")).overrideLootTable(GRAY_CANVAS_SIGN.get().getLootTable()), DyeColor.GRAY));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("gray_canvas_wall_sign")), DyeColor.GRAY));
 	public static final Supplier<Block> LIGHT_GRAY_CANVAS_WALL_SIGN = BLOCKS.register("light_gray_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("light_gray_canvas_wall_sign")).overrideLootTable(LIGHT_GRAY_CANVAS_SIGN.get().getLootTable()), DyeColor.LIGHT_GRAY));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("light_gray_canvas_wall_sign")), DyeColor.LIGHT_GRAY));
 	public static final Supplier<Block> CYAN_CANVAS_WALL_SIGN = BLOCKS.register("cyan_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("cyan_canvas_wall_sign")).overrideLootTable(CYAN_CANVAS_SIGN.get().getLootTable()), DyeColor.CYAN));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("cyan_canvas_wall_sign")), DyeColor.CYAN));
 	public static final Supplier<Block> PURPLE_CANVAS_WALL_SIGN = BLOCKS.register("purple_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("purple_canvas_wall_sign")).overrideLootTable(PURPLE_CANVAS_SIGN.get().getLootTable()), DyeColor.PURPLE));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("purple_canvas_wall_sign")), DyeColor.PURPLE));
 	public static final Supplier<Block> BLUE_CANVAS_WALL_SIGN = BLOCKS.register("blue_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("blue_canvas_wall_sign")).overrideLootTable(BLUE_CANVAS_SIGN.get().getLootTable()), DyeColor.BLUE));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("blue_canvas_wall_sign")), DyeColor.BLUE));
 	public static final Supplier<Block> BROWN_CANVAS_WALL_SIGN = BLOCKS.register("brown_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("brown_canvas_wall_sign")).overrideLootTable(BROWN_CANVAS_SIGN.get().getLootTable()), DyeColor.BROWN));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("brown_canvas_wall_sign")), DyeColor.BROWN));
 	public static final Supplier<Block> GREEN_CANVAS_WALL_SIGN = BLOCKS.register("green_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("green_canvas_wall_sign")).overrideLootTable(GREEN_CANVAS_SIGN.get().getLootTable()), DyeColor.GREEN));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("green_canvas_wall_sign")), DyeColor.GREEN));
 	public static final Supplier<Block> RED_CANVAS_WALL_SIGN = BLOCKS.register("red_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("red_canvas_wall_sign")).overrideLootTable(RED_CANVAS_SIGN.get().getLootTable()), DyeColor.RED));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("red_canvas_wall_sign")), DyeColor.RED));
 	public static final Supplier<Block> BLACK_CANVAS_WALL_SIGN = BLOCKS.register("black_canvas_wall_sign",
-		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("black_canvas_wall_sign")).overrideLootTable(BLACK_CANVAS_SIGN.get().getLootTable()), DyeColor.BLACK));
+		() -> new WallCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_SIGN).setId(key("black_canvas_wall_sign")), DyeColor.BLACK));
 
 	public static final Supplier<Block> HANGING_CANVAS_SIGN = BLOCKS.register("hanging_canvas_sign",
 		() -> new CeilingHangingCanvasSignBlock(key("hanging_canvas_sign"), null));
@@ -222,39 +222,39 @@ public class ModBlocks
 		() -> new CeilingHangingCanvasSignBlock(key("black_hanging_canvas_sign"), DyeColor.BLACK));
 
 	public static final Supplier<Block> HANGING_CANVAS_WALL_SIGN = BLOCKS.register("wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("wall_hanging_canvas_sign")).overrideLootTable(HANGING_CANVAS_SIGN.get().getLootTable()), null));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("wall_hanging_canvas_sign")), null));
 	public static final Supplier<Block> WHITE_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("white_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("white_wall_hanging_canvas_sign")).overrideLootTable(WHITE_HANGING_CANVAS_SIGN.get().getLootTable()), DyeColor.WHITE));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("white_wall_hanging_canvas_sign")), DyeColor.WHITE));
 	public static final Supplier<Block> ORANGE_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("orange_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("orange_wall_hanging_canvas_sign")).overrideLootTable(ORANGE_HANGING_CANVAS_SIGN.get().getLootTable()), DyeColor.ORANGE));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("orange_wall_hanging_canvas_sign")), DyeColor.ORANGE));
 	public static final Supplier<Block> MAGENTA_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("magenta_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("magenta_wall_hanging_canvas_sign")).overrideLootTable(MAGENTA_HANGING_CANVAS_SIGN.get().getLootTable()), DyeColor.MAGENTA));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("magenta_wall_hanging_canvas_sign")), DyeColor.MAGENTA));
 	public static final Supplier<Block> LIGHT_BLUE_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("light_blue_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("light_blue_wall_hanging_canvas_sign")).overrideLootTable(LIGHT_BLUE_HANGING_CANVAS_SIGN.get().getLootTable()), DyeColor.LIGHT_BLUE));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("light_blue_wall_hanging_canvas_sign")), DyeColor.LIGHT_BLUE));
 	public static final Supplier<Block> YELLOW_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("yellow_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("yellow_wall_hanging_canvas_sign")).overrideLootTable(YELLOW_HANGING_CANVAS_SIGN.get().getLootTable()), DyeColor.YELLOW));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("yellow_wall_hanging_canvas_sign")), DyeColor.YELLOW));
 	public static final Supplier<Block> LIME_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("lime_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("lime_wall_hanging_canvas_sign")).overrideLootTable(LIME_HANGING_CANVAS_SIGN.get().getLootTable()), DyeColor.LIME));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("lime_wall_hanging_canvas_sign")), DyeColor.LIME));
 	public static final Supplier<Block> PINK_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("pink_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("pink_wall_hanging_canvas_sign")).overrideLootTable(PINK_HANGING_CANVAS_SIGN.get().getLootTable()), DyeColor.PINK));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("pink_wall_hanging_canvas_sign")), DyeColor.PINK));
 	public static final Supplier<Block> GRAY_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("gray_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("gray_wall_hanging_canvas_sign")).overrideLootTable(GRAY_HANGING_CANVAS_SIGN.get().getLootTable()), DyeColor.GRAY));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("gray_wall_hanging_canvas_sign")), DyeColor.GRAY));
 	public static final Supplier<Block> LIGHT_GRAY_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("light_gray_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("light_gray_wall_hanging_canvas_sign")).overrideLootTable(LIGHT_GRAY_HANGING_CANVAS_SIGN.get().getLootTable()), DyeColor.LIGHT_GRAY));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("light_gray_wall_hanging_canvas_sign")), DyeColor.LIGHT_GRAY));
 	public static final Supplier<Block> CYAN_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("cyan_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("cyan_wall_hanging_canvas_sign")).overrideLootTable(CYAN_HANGING_CANVAS_SIGN.get().getLootTable()), DyeColor.CYAN));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("cyan_wall_hanging_canvas_sign")), DyeColor.CYAN));
 	public static final Supplier<Block> PURPLE_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("purple_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("purple_wall_hanging_canvas_sign")).overrideLootTable(PURPLE_HANGING_CANVAS_SIGN.get().getLootTable()), DyeColor.PURPLE));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("purple_wall_hanging_canvas_sign")), DyeColor.PURPLE));
 	public static final Supplier<Block> BLUE_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("blue_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("blue_wall_hanging_canvas_sign")).overrideLootTable(BLUE_HANGING_CANVAS_SIGN.get().getLootTable()), DyeColor.BLUE));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("blue_wall_hanging_canvas_sign")), DyeColor.BLUE));
 	public static final Supplier<Block> BROWN_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("brown_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("brown_wall_hanging_canvas_sign")).overrideLootTable(BROWN_HANGING_CANVAS_SIGN.get().getLootTable()), DyeColor.BROWN));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("brown_wall_hanging_canvas_sign")), DyeColor.BROWN));
 	public static final Supplier<Block> GREEN_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("green_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("green_wall_hanging_canvas_sign")).overrideLootTable(GREEN_HANGING_CANVAS_SIGN.get().getLootTable()), DyeColor.GREEN));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("green_wall_hanging_canvas_sign")), DyeColor.GREEN));
 	public static final Supplier<Block> RED_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("red_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("red_wall_hanging_canvas_sign")).overrideLootTable(RED_HANGING_CANVAS_SIGN.get().getLootTable()), DyeColor.RED));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("red_wall_hanging_canvas_sign")), DyeColor.RED));
 	public static final Supplier<Block> BLACK_HANGING_CANVAS_WALL_SIGN = BLOCKS.register("black_wall_hanging_canvas_sign",
-		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("black_wall_hanging_canvas_sign")).overrideLootTable(BLACK_HANGING_CANVAS_SIGN.get().getLootTable()), DyeColor.BLACK));
+		() -> new WallHangingCanvasSignBlock(Block.Properties.ofFullCopy(Blocks.SPRUCE_WALL_HANGING_SIGN).setId(key("black_wall_hanging_canvas_sign")), DyeColor.BLACK));
 
 	// Composting
 	public static final Supplier<Block> BROWN_MUSHROOM_COLONY = BLOCKS.register("brown_mushroom_colony",
@@ -313,7 +313,7 @@ public class ModBlocks
 	public static final DeferredHolder<Block, TomatoBlock> TOMATO_CROP = BLOCKS.register("tomatoes",
 		() -> new TomatoBlock(Block.Properties.of().setId(key("tomatoes")).noCollision().randomTicks().instabreak().sound(SoundType.CROP)));
 	public static final DeferredHolder<Block, HangingTomatoBlock> TOMATO_CROP_ON_ROPE = BLOCKS.register("tomatoes_on_rope",
-		() -> new HangingTomatoBlock(Block.Properties.ofFullCopy(ModBlocks.TOMATO_CROP.get()).setId(key("tomatoes_on_rope")).pushReaction(PushReaction.NORMAL)));
+		() -> new HangingTomatoBlock(Block.Properties.ofFullCopy(Blocks.WHEAT).setId(key("tomatoes_on_rope")).pushReaction(PushReaction.NORMAL)));
 	public static final Supplier<Block> RICE_CROP = BLOCKS.register("rice",
 		() -> new RiceBlock(Block.Properties.ofFullCopy(Blocks.WHEAT).setId(key("rice")).strength(0.2F)));
 	public static final Supplier<Block> RICE_CROP_PANICLES = BLOCKS.register("rice_panicles",

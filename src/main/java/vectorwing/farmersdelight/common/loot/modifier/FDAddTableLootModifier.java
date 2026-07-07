@@ -30,8 +30,10 @@ public class FDAddTableLootModifier extends AddTableLootModifier
 
 	private final ResourceKey<LootTable> lootTable;
 
-	protected FDAddTableLootModifier(LootItemCondition[] conditionsIn, ResourceKey<LootTable> lootTable) {
-		super(conditionsIn, lootTable);
+	// M2 (26.2 port): AddTableLootModifier gained an int parameter; codecStart(inst) now supplies it,
+	// so the codec builds (conditions, int, lootTable) and this constructor matches that arity.
+	protected FDAddTableLootModifier(LootItemCondition[] conditionsIn, int rolls, ResourceKey<LootTable> lootTable) {
+		super(conditionsIn, rolls, lootTable);
 		this.lootTable = lootTable;
 	}
 
@@ -39,7 +41,7 @@ public class FDAddTableLootModifier extends AddTableLootModifier
 	@Override
 	protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
 		if (Configuration.GENERATE_FD_CHEST_LOOT.get()) {
-			context.getResolver().get(Registries.LOOT_TABLE, this.lootTable).ifPresent((extraTable) -> {
+			context.getResolver().get(this.lootTable).ifPresent((extraTable) -> {
 				extraTable.value().getRandomItemsRaw(context, createStackSplitter(context.getLevel(), generatedLoot::add));
 			});
 		}

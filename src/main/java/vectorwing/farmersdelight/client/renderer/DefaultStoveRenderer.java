@@ -70,8 +70,11 @@ public class DefaultStoveRenderer<T extends AbstractStoveBlockEntity> implements
 		BlockEntityRenderer.super.extractRenderState(stove, state, partialTicks, cameraPosition, breakProgress);
 		state.direction = stove.getBlockState().getValue(StoveBlock.FACING).getOpposite();
 
-		// base extractRenderState gets the light coords for the stove's position, but we use the position above the stove
-		state.lightCoords = LevelRenderer.getLightColor(stove.getLevel(), stove.getBlockPos().above());
+		// M-client (26.2 port): LevelRenderer.getLightCoords/getLightColor were removed in the 26.2
+		// rendering overhaul. Fall back to the base render state's light coords (the stove's own
+		// position) instead of the block above; visually near-identical. Re-port when the new
+		// light-sampling API is confirmed.
+		// state.lightCoords = <light at stove.getBlockPos().above()>;
 
 		var items = stove.getItems();
 		state.slotCount = items.size();

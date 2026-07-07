@@ -38,11 +38,14 @@ public class BasketBlockEntity extends RandomizableContainerBlockEntity implemen
 
 	@SubscribeEvent
 	public static void registerCapabilities(RegisterCapabilitiesEvent event) {
-		event.registerBlockEntity(
-			Capabilities.Item.BLOCK,
-			ModBlockEntityTypes.BASKET.get(),
-			(blockEntity, _) -> new BasketInvWrapper(blockEntity)
-		);
+		// M2 (26.2 port): Capabilities.Item.BLOCK now requires ResourceHandler<ItemResource> (new
+		// transfer API). BasketInvWrapper (excluded from compilation) used the old IItemHandler API.
+		// Automation I/O for baskets is deferred until it is rewritten as a ResourceHandler adapter.
+//		event.registerBlockEntity(
+//			Capabilities.Item.BLOCK,
+//			ModBlockEntityTypes.BASKET.get(),
+//			(blockEntity, _) -> new BasketInvWrapper(blockEntity)
+//		);
 	}
 
 	@Override

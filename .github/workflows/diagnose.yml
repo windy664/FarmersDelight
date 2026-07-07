@@ -40,7 +40,21 @@ jobs:
           echo "total unique class entries: $(wc -l < /tmp/all_classes.txt)"
           echo ""
           CP=$(paste -sd: /tmp/jars.txt)
-          echo "==== ColorCollection ===="
+          echo "==== RecipeBookComponent (full p) ===="
+          javap -cp "$CP" -p net.minecraft.client.gui.screens.recipebook.RecipeBookComponent 2>&1 | grep -E 'abstract|RecipeBookComponent\(|TabInfo' | head -30
+          echo "==== TabInfo ===="
+          javap -cp "$CP" -p 'net.minecraft.client.gui.screens.recipebook.RecipeBookComponent$TabInfo' 2>&1 | grep -E 'public|TabInfo' | head
+          echo "==== AbstractRecipeBookScreen ctor ===="
+          javap -cp "$CP" -p net.neoforged.neoforge.client.gui.AbstractRecipeBookScreen 2>&1 | grep -E 'AbstractRecipeBookScreen\(|protected|abstract' | head
+          javap -cp "$CP" -p net.minecraft.client.gui.screens.inventory.AbstractRecipeBookScreen 2>&1 | grep -E 'AbstractRecipeBookScreen\(|protected|abstract' | head
+          echo "==== locations ===="
+          grep -E '/(BlockRenderDispatcher|AbstractRecipeBookScreen|SignRenderer)\.class' /tmp/all_classes.txt | sed 's#\.class##;s#/#.#g' | sort -u
+          echo "==== BlockPos center ===="
+          javap -cp "$CP" -public net.minecraft.core.Vec3i 2>&1 | grep -iE 'center'
+          javap -cp "$CP" -public net.minecraft.core.BlockPos 2>&1 | grep -iE 'center' | head
+          echo "==== Block updateEntity fall ===="
+          javap -cp "$CP" -p net.minecraft.world.level.block.Block 2>&1 | grep -iE 'FallOn|bounce' | head
+          echo "==== old ColorCollection block ===="
           javap -cp "$CP" -p net.minecraft.world.level.block.ColorCollection 2>&1 | grep -E 'public|protected' | head -20
           echo ""
           echo "==== VanillaContainerWrapper ===="

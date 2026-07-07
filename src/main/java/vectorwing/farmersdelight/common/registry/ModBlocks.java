@@ -67,15 +67,15 @@ public class ModBlocks
 	public static final Supplier<Block> RICE_BALE = BLOCKS.register("rice_bale",
 		() -> new RiceBaleBlock(Block.Properties.ofFullCopy(Blocks.HAY_BLOCK)));
 	public static final Supplier<Block> RICE_BAG = BLOCKS.register("rice_bag",
-		() -> new Block(Block.Properties.ofFullCopy(Blocks.WOOL.get(DyeColor.WHITE))));
+		() -> new Block(Block.Properties.ofFullCopy(Blocks.WOOL.pick(DyeColor.WHITE))));
 	public static final Supplier<Block> STRAW_BALE = BLOCKS.register("straw_bale",
 		() -> new StrawBaleBlock(Block.Properties.ofFullCopy(Blocks.HAY_BLOCK)));
 
 	// Building
 	public static final Supplier<Block> ROPE = BLOCKS.register("rope",
-		() -> new RopeBlock(Block.Properties.ofFullCopy(Blocks.CARPET.get(DyeColor.BROWN)).noCollision().noOcclusion().strength(0.2F).sound(SoundType.WOOL)));
+		() -> new RopeBlock(Block.Properties.ofFullCopy(Blocks.CARPET.pick(DyeColor.BROWN)).noCollision().noOcclusion().strength(0.2F).sound(SoundType.WOOL)));
 	public static final Supplier<Block> SAFETY_NET = BLOCKS.register("safety_net",
-		() -> new SafetyNetBlock(Block.Properties.ofFullCopy(Blocks.CARPET.get(DyeColor.BROWN)).strength(0.2F).sound(SoundType.WOOL)));
+		() -> new SafetyNetBlock(Block.Properties.ofFullCopy(Blocks.CARPET.pick(DyeColor.BROWN)).strength(0.2F).sound(SoundType.WOOL)));
 	public static final Supplier<Block> ROPE_FENCE = BLOCKS.register("rope_fence",
 		() -> new RopeFenceBlock(Block.Properties.ofFullCopy(Blocks.OAK_FENCE).strength(1.0F)));
 	public static final Supplier<Block> ROPE_FENCE_GATE = BLOCKS.register("rope_fence_gate",
@@ -103,13 +103,13 @@ public class ModBlocks
 	public static final Supplier<Block> WARPED_CABINET = BLOCKS.register("warped_cabinet",
 		() -> new CabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL).sound(SoundType.NETHER_WOOD)));
 	public static final Supplier<Block> CANVAS_RUG = BLOCKS.register("canvas_rug",
-		() -> new CanvasRugBlock(Block.Properties.ofFullCopy(Blocks.CARPET.get(DyeColor.WHITE)).sound(SoundType.GRASS).strength(0.2F)));
+		() -> new CanvasRugBlock(Block.Properties.ofFullCopy(Blocks.CARPET.pick(DyeColor.WHITE)).sound(SoundType.GRASS).strength(0.2F)));
 	public static final Supplier<Block> TATAMI = BLOCKS.register("tatami",
-		() -> new TatamiBlock(Block.Properties.ofFullCopy(Blocks.WOOL.get(DyeColor.WHITE))));
+		() -> new TatamiBlock(Block.Properties.ofFullCopy(Blocks.WOOL.pick(DyeColor.WHITE))));
 	public static final Supplier<Block> FULL_TATAMI_MAT = BLOCKS.register("full_tatami_mat",
-		() -> new TatamiMatBlock(Block.Properties.ofFullCopy(Blocks.WOOL.get(DyeColor.WHITE)).strength(0.3F)));
+		() -> new TatamiMatBlock(Block.Properties.ofFullCopy(Blocks.WOOL.pick(DyeColor.WHITE)).strength(0.3F)));
 	public static final Supplier<Block> HALF_TATAMI_MAT = BLOCKS.register("half_tatami_mat",
-		() -> new TatamiHalfMatBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.get(DyeColor.WHITE)).strength(0.3F).pushReaction(PushReaction.DESTROY)));
+		() -> new TatamiHalfMatBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.pick(DyeColor.WHITE)).strength(0.3F).pushReaction(PushReaction.DESTROY)));
 
 	public static final Supplier<Block> CANVAS_SIGN = BLOCKS.register("canvas_sign",
 		() -> new StandingCanvasSignBlock(null));

@@ -181,8 +181,8 @@ public class CookingPotMenu extends RecipeBookMenu
 
 	@Override
 	public void fillCraftSlotsStackedContents(StackedItemContents helper) {
-		for (int i = 0; i < inventory.size(); i++) {
-			helper.accountSimpleStack(inventory.getResource(i).toStack(inventory.getAmountAsInt(i)));
+		for (int i = 0; i < inventory.getSlots(); i++) {
+			helper.accountSimpleStack(inventory.getStackInSlot(i));
 		}
 	}
 

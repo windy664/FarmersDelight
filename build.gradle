@@ -26,6 +26,9 @@ sourceSets.main.resources {
 // it is migrated to the 26.2 providers. runData is disabled accordingly (see DataGenerators).
 sourceSets.main.java {
     exclude 'vectorwing/farmersdelight/data/**'
+    // M2 (26.2 port): serves only the deferred Basket item-handler capability (new transfer API
+    // requires a ResourceHandler adapter). Excluded until that adapter is written.
+    exclude 'vectorwing/farmersdelight/common/block/entity/inventory/BasketInvWrapper.java'
 }
 
 repositories {

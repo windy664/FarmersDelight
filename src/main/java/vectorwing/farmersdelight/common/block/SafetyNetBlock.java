@@ -74,15 +74,9 @@ public class SafetyNetBlock extends Block implements SimpleWaterloggedBlock
 		}
 	}
 
-	@Override
-	public void updateEntityMovementAfterFallOn(BlockGetter level, Entity entity) {
-		if (entity.isSuppressingBounce()) {
-			super.updateEntityMovementAfterFallOn(level, entity);
-		} else {
-			this.bounceEntity(entity);
-		}
-	}
-
+	// M2 (26.2 port): Block.updateEntityMovementAfterFallOn(BlockGetter, Entity) was removed in 26.2.
+	// The bounce hook needs re-porting to whatever replaced it; safety-net bounce is deferred.
+	@SuppressWarnings("unused")
 	private void bounceEntity(Entity entity) {
 		Vec3 vec3d = entity.getDeltaMovement();
 		if (vec3d.y < 0.0D) {

@@ -1,35 +1,49 @@
 package vectorwing.farmersdelight.client.gui;
 
 import net.minecraft.client.gui.components.WidgetSprites;
+import net.minecraft.client.gui.screens.recipebook.GhostSlots;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
+import net.minecraft.client.gui.screens.recipebook.RecipeCollection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
+import net.minecraft.util.context.ContextMap;
+import net.minecraft.world.entity.player.StackedItemContents;
 import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.display.RecipeDisplay;
 import vectorwing.farmersdelight.FarmersDelight;
-import vectorwing.farmersdelight.common.crafting.CookingPotRecipe;
+import vectorwing.farmersdelight.common.block.entity.container.CookingPotMenu;
+import vectorwing.farmersdelight.common.registry.ModRecipeCategories;
 import vectorwing.farmersdelight.common.utility.TextUtils;
 
 import javax.annotation.Nonnull;
-import java.util.List;
 
-public class CookingPotRecipeBookComponent extends RecipeBookComponent
+public class CookingPotRecipeBookComponent extends RecipeBookComponent<CookingPotMenu>
 {
+	// Cooking pot input slots are indices 0..5.
+	private static final int INPUT_SLOT_COUNT = 6;
+
 	protected static final WidgetSprites RECIPE_BOOK_BUTTONS = new WidgetSprites(
 			Identifier.fromNamespaceAndPath(FarmersDelight.MODID, "recipe_book/cooking_pot_enabled"),
 			Identifier.fromNamespaceAndPath(FarmersDelight.MODID, "recipe_book/cooking_pot_disabled"),
 			Identifier.fromNamespaceAndPath(FarmersDelight.MODID, "recipe_book/cooking_pot_enabled_highlighted"),
 			Identifier.fromNamespaceAndPath(FarmersDelight.MODID, "recipe_book/cooking_pot_disabled_highlighted"));
 
-	@Override
-	protected void initFilterButtonTextures() {
-		this.filterButton.initTextureValues(RECIPE_BOOK_BUTTONS);
+	public CookingPotRecipeBookComponent(CookingPotMenu menu) {
+		super(menu, ModRecipeCategories.createCookingPotTabInfo());
 	}
 
 	public void hide() {
 		this.setVisible(false);
+	}
+
+	@Override
+	protected WidgetSprites getFilterButtonTextures() {
+		return RECIPE_BOOK_BUTTONS;
+	}
+
+	@Override
+	protected boolean isCraftingSlot(Slot slot) {
+		return slot.index >= 0 && slot.index < INPUT_SLOT_COUNT;
 	}
 
 	@Override
@@ -38,21 +52,14 @@ public class CookingPotRecipeBookComponent extends RecipeBookComponent
 		return TextUtils.container("recipe_book.cookable");
 	}
 
+	// M2 (26.2 port): the recipe-book ghost-preview / craftable-highlight system was rewritten around
+	// RecipeDisplay + GhostSlots + StackedItemContents. Structural integration (tabs, filter, visibility)
+	// is ported; ghost recipe + match highlighting are stubbed pending the new recipe-display port.
 	@Override
-	public void setupGhostRecipe(RecipeHolder<?> recipe, List<Slot> slots) {
-		ItemStack resultStack = recipe.value().getResultItem(this.minecraft.level.registryAccess());
-		this.ghostRecipe.setRecipe(recipe);
-		if (slots.get(6).getItem().isEmpty()) {
-			this.ghostRecipe.addIngredient(Ingredient.of(resultStack), (slots.get(6)).x, (slots.get(6)).y);
-		}
+	protected void selectMatchingRecipes(RecipeCollection recipeCollection, StackedItemContents stackedItemContents) {
+	}
 
-		if (recipe.value() instanceof CookingPotRecipe cookingRecipe) {
-			ItemStack containerStack = cookingRecipe.getOutputContainer();
-			if (!containerStack.isEmpty()) {
-				this.ghostRecipe.addIngredient(Ingredient.of(containerStack), (slots.get(7)).x, (slots.get(7)).y);
-			}
-		}
-
-		this.placeRecipe(this.menu.getGridWidth(), this.menu.getGridHeight(), this.menu.getResultSlotIndex(), recipe, recipe.value().getIngredients().iterator(), 0);
+	@Override
+	protected void fillGhostRecipe(GhostSlots ghostSlots, RecipeDisplay recipeDisplay, ContextMap contextMap) {
 	}
 }

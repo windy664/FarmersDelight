@@ -4,14 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "datafix.ItemStackComponentizationFixMixin",
-    "datafix.V1460Mixin",
-    "CampfireBaleMixin",
-    "CuttingBoardDispenserMixin",
-    "KeepRichSoilUntrampledMixin",
-    "NourishmentAlwaysEatMixin",
-    "PlacePumpkinPieMixin",
-    "RopeFenceConnectionMixin",
-    "VillagersTargetRichSoilMixin"
+    "datafix.V1460Mixin"
   ],
   "client": [
   ],

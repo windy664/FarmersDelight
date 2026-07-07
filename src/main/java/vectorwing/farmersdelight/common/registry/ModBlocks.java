@@ -114,7 +114,7 @@ public class ModBlocks
 	public static final Supplier<Block> FULL_TATAMI_MAT = BLOCKS.register("full_tatami_mat",
 		() -> new TatamiMatBlock(Block.Properties.ofFullCopy(Blocks.WOOL.pick(DyeColor.WHITE)).setId(key("full_tatami_mat")).strength(0.3F)));
 	public static final Supplier<Block> HALF_TATAMI_MAT = BLOCKS.register("half_tatami_mat",
-		() -> new TatamiHalfMatBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.pick(DyeColor.WHITE)).strength(0.3F).pushReaction(PushReaction.DESTROY)));
+		() -> new TatamiHalfMatBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.pick(DyeColor.WHITE)).setId(key("half_tatami_mat")).strength(0.3F).pushReaction(PushReaction.DESTROY)));
 
 	public static final Supplier<Block> CANVAS_SIGN = BLOCKS.register("canvas_sign",
 		() -> new StandingCanvasSignBlock(key("canvas_sign"), null));
